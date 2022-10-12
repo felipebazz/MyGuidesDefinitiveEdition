@@ -11,5 +11,7 @@ namespace MyGuides.Domain.Entities.BannerTypes
         {
             Name = name;
         }
+
+        protected BannerType() { }
     }
 }

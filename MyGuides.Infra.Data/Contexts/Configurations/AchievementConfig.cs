@@ -50,7 +50,7 @@ namespace MyGuides.Infra.Data.Contexts.Configurations
                 .HasForeignKey(f => f.SectionId);
 
             builder.HasOne(p => p.Difficulty)
-                .WithMany()
+                .WithMany(p => p.Achievements)
                 .HasForeignKey(f => f.DifficultyId);
         }
     }

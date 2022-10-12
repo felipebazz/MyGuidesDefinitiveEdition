@@ -9,7 +9,7 @@ namespace MyGuides.Domain.Entities.Banners
     {
         public BannerValidator()
         {
-            RuleFor(x => x.ImageName)
+            RuleFor(x => x.Name)
                 .NotEmpty()
                 .WithMessage("cadastrar")
                 .MaximumLength(FieldRules.TextFieldMaxLength);
@@ -20,7 +20,7 @@ namespace MyGuides.Domain.Entities.Banners
                 .MaximumLength(FieldRules.TextFieldMaxLength)
                 .WithMessage("cadastrar");
 
-            RuleFor(x => x.ImageURL)
+            RuleFor(x => x.Url)
                 .NotEmpty()
                 .WithMessage("cadastrar")
                 .MaximumLength(FieldRules.TextFieldMaxLength)
