@@ -21,6 +21,8 @@ namespace MyGuides.Domain.Entities.Difficulties
             Validate();
         }
 
+        protected Difficulty() { }
+
         public void SetAchievements(List<Achievement> achievements)
         {
             if (achievements is null)

@@ -24,6 +24,7 @@ namespace MyGuides.Domain.Entities.Games
             Validate();
         }
 
+        protected Game() { }
         public void AddAchievement(List<Achievement> achievements)
         {
             Achievements.AddRange(achievements);

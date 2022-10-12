@@ -6,9 +6,10 @@ using System.Diagnostics.CodeAnalysis;
 namespace MyGuides.Domain.Abstractions.Entities
 {
     [ExcludeFromCodeCoverage]
-    public abstract class Entity<TId> : Entity where TId : struct
+    public abstract class Entity<TId> : Entity 
+        where TId : struct
     {
-        public TId Id { get; protected set; }
+        public TId Id { get; private set; }
 
         protected Entity() { }
 
@@ -20,7 +21,7 @@ namespace MyGuides.Domain.Abstractions.Entities
         public override bool Equals(object? obj)
         {
             if (obj is null) return false;
-            if (!(obj is Entity<TId> entity)) return false;
+            if (obj is not Entity<TId> entity) return false;
             return Id.Equals(entity.Id);
         }
 

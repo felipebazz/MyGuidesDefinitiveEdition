@@ -27,10 +27,6 @@ namespace MyGuides.Infra.Data.Contexts.Configurations
 
             builder.Property(p => p.Order)
                 .IsRequired();
-
-            builder.HasMany(p => p.Achievements)
-                .WithOne()
-                .HasForeignKey(f => f.DifficultyId);
         }
     }
 }
