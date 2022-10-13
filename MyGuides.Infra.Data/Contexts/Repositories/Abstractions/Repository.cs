@@ -124,12 +124,16 @@ namespace MyGuides.Infra.Data.Contexts.Repositories.Abstractions
 
         public void Update(TEntity entity)
         {
-            throw new NotImplementedException();
+            if (!entity.Valid) return;
+            if (Any(entity.Id) is false) return;
+            _dbContext.Entry(entity).State = EntityState.Modified;
         }
 
-        public Task UpdateAsync(TEntity entity, CancellationToken cancellationToken)
+        public virtual async Task UpdateAsync(TEntity entity, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            if (!entity.Valid) return;
+            if (await AnyAsync(entity.Id, cancellationToken) is false) return;
+            _dbContext.Entry(entity).State = EntityState.Modified;
         }
     }
 }
