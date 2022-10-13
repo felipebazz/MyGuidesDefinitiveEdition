@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using MyGuides.Domain.Constants;
 using MyGuides.Domain.Entities.Achievements;
-using MyGuides.Domain.Entities.Games;
 using System.Diagnostics.CodeAnalysis;
 
 namespace MyGuides.Infra.Data.Contexts.Configurations
