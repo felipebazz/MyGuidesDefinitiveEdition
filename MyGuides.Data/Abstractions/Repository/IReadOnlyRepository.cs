@@ -3,10 +3,10 @@ using MyGuides.Domain.Abstractions.Entities;
 using MyGuides.Domain.Abstractions.Pagination;
 using System.Linq.Expressions;
 
-namespace MyGuides.Infra.Data.Contexts.Repositories.Abstractions
+namespace MyGuides.Domain.Abstractions.Repository
 {
     public interface IReadOnlyRepository<TEntity>
-        where TEntity : Entity
+            where TEntity : Entity
     {
         bool Any(Expression<Func<TEntity, bool>> predicate);
 
@@ -52,7 +52,7 @@ namespace MyGuides.Infra.Data.Contexts.Repositories.Abstractions
             Func<IQueryable<TEntityDefinition>, IIncludableQueryable<TEntityDefinition, object>> include = default,
             bool asTracking = default)
             where TEntityDefinition : TEntity;
-        
+
     }
 
     public interface IReadOnlyRepository<TEntity, in TId> : IReadOnlyRepository<TEntity>

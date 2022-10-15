@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore.Query;
 using MyGuides.Domain.Abstractions.Entities;
 using MyGuides.Domain.Abstractions.Pagination;
+using MyGuides.Domain.Abstractions.Repository;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq.Expressions;
 

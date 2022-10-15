@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MyGuides.Domain.Entities.Games;
+using MyGuides.Domain.Entities.Games.Repository;
 using MyGuides.Infra.Data.Contexts.Repositories.Abstractions;
 
 namespace MyGuides.Infra.Data.Contexts.Repositories.Games

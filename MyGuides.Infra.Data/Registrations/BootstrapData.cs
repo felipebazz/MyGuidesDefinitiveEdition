@@ -1,6 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MyGuides.Domain.Entities.Achievements.Repositories;
+using MyGuides.Domain.Entities.Banners.Repository;
+using MyGuides.Domain.Entities.BannerTypes.Repository;
+using MyGuides.Domain.Entities.Difficulties.Repository;
+using MyGuides.Domain.Entities.Games.Repository;
+using MyGuides.Domain.Entities.Sections.Repository;
 using MyGuides.Infra.Data.Contexts.Database;
 using MyGuides.Infra.Data.Contexts.Repositories.Achievements;
 using MyGuides.Infra.Data.Contexts.Repositories.Banners;
