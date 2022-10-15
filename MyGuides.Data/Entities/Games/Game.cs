@@ -35,9 +35,9 @@ namespace MyGuides.Domain.Entities.Games
             Achievements.Add(achievement);
         }
 
-        public void SetUpdateDate(DateTime updateDate)
+        public void SetUpdateDate()
         {
-            UpdateDate = updateDate;
+            UpdateDate = DateTime.Now;
         }
 
         public override bool Validate() => OnValidate(this, new GameValidator());
