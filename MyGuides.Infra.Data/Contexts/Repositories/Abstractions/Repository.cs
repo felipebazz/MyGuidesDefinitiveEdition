@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MyGuides.Domain.Abstractions.Entities;
+using MyGuides.Domain.Abstractions.Repository;
 using System.Diagnostics.CodeAnalysis;
 
 namespace MyGuides.Infra.Data.Contexts.Repositories.Abstractions

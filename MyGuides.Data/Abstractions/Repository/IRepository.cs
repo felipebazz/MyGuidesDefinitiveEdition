@@ -1,9 +1,9 @@
 ﻿using MyGuides.Domain.Abstractions.Entities;
 
-namespace MyGuides.Infra.Data.Contexts.Repositories.Abstractions
+namespace MyGuides.Domain.Abstractions.Repository
 {
     public interface IRepository<TEntity> : IReadOnlyRepository<TEntity>
-        where TEntity : Entity
+           where TEntity : Entity
     {
         TEntity Add(TEntity entity);
 

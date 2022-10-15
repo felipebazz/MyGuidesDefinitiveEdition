@@ -13,6 +13,10 @@ namespace MyGuides.Domain.Entities.BannerTypes
                 .WithMessage("cadastrar")
                 .MaximumLength(FieldRules.NameMaxLength)
                 .WithMessage("cadastrar");
+
+            RuleFor(x => x.Hidden)
+                .NotEmpty()
+                .WithMessage("cadastrar");
         }
     }
 }
