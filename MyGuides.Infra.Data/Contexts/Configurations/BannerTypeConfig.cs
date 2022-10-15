@@ -18,6 +18,10 @@ namespace MyGuides.Infra.Data.Contexts.Configurations
                 .IsRequired()
                 .HasMaxLength(FieldRules.NameMaxLength);
 
+            builder.Property(p => p.Hidden)
+                .IsRequired()
+                .HasDefaultValue(false);
+
             builder.HasDiscriminator(nameof(BannerType.Id), typeof(int))
                 .HasValue<Header>(Header.Discriminator)
                 .HasValue<Divisor>(Divisor.Discriminator);
