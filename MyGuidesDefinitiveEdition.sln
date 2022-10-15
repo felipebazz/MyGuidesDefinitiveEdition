@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyGuides.Api", "MyGuides.Ap
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyGuides.Notifications", "MyGuides.Notifications\MyGuides.Notifications.csproj", "{C6171EC9-25EF-4920-B118-B7FFDD16FFAF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyGuides.Application", "MyGuides.Application\MyGuides.Application.csproj", "{FE60FEDE-308C-43D1-B03C-FAAC5DA8A5B4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{C6171EC9-25EF-4920-B118-B7FFDD16FFAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6171EC9-25EF-4920-B118-B7FFDD16FFAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C6171EC9-25EF-4920-B118-B7FFDD16FFAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE60FEDE-308C-43D1-B03C-FAAC5DA8A5B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE60FEDE-308C-43D1-B03C-FAAC5DA8A5B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE60FEDE-308C-43D1-B03C-FAAC5DA8A5B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE60FEDE-308C-43D1-B03C-FAAC5DA8A5B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,6 +50,7 @@ Global
 		{251A267C-1D03-42B0-B579-F88436A1E63E} = {F710EF8F-D536-4301-9B67-1E43AFF656BF}
 		{7DECA206-97B5-406B-8BB9-385349CAEF15} = {F710EF8F-D536-4301-9B67-1E43AFF656BF}
 		{C6171EC9-25EF-4920-B118-B7FFDD16FFAF} = {F710EF8F-D536-4301-9B67-1E43AFF656BF}
+		{FE60FEDE-308C-43D1-B03C-FAAC5DA8A5B4} = {F710EF8F-D536-4301-9B67-1E43AFF656BF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ECCF9FBA-C37D-4A93-A2D3-B96C85D6589F}
