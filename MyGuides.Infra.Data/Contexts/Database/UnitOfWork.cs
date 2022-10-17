@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using Microsoft.EntityFrameworkCore.Infrastructure;
+using System.Diagnostics.CodeAnalysis;
 
 namespace MyGuides.Infra.Data.Contexts.Database
 {
@@ -12,7 +13,6 @@ namespace MyGuides.Infra.Data.Contexts.Database
             _dbContext = dbContext;
         }
 
-        public Task SaveChangesAsync(CancellationToken cancellationToken) => _dbContext.SaveChangesAsync(cancellationToken);
-        
+        public Task SaveChangesAsync(CancellationToken cancellationToken) => _dbContext.SaveChangesAsync(cancellationToken);   
     }
 }

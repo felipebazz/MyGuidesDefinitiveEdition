@@ -9,7 +9,7 @@ namespace MyGuides.Notifications.Registrations
     [ExcludeFromCodeCoverage]
     public static class BootstrapNotification
     {
-        public static void UseNotifications(this IServiceCollection services)
+        public static void RegisterNotifications(this IServiceCollection services)
         {
             services.AddMvcCore(s =>
             {
@@ -18,7 +18,7 @@ namespace MyGuides.Notifications.Registrations
                 s.Filters.Add<ExceptionFilter>();
             }).SetCompatibilityVersion(CompatibilityVersion.Latest);
 
-            services.AddScoped<INotificationContext, NotificationContext>();
+            services.AddScoped<INotificationService, NotificationContext>();
         }
     }
 }

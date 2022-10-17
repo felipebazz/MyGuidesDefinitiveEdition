@@ -2,7 +2,7 @@
 
 namespace MyGuides.Notifications.Context
 {
-    public interface INotificationContext
+    public interface INotificationService
     {
         bool HasNotifications { get; }
 

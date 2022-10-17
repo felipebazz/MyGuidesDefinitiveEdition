@@ -4,7 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 namespace MyGuides.Notifications.Context
 {
     [ExcludeFromCodeCoverage]
-    public class NotificationContext : INotificationContext
+    public class NotificationContext : INotificationService
     {
         private readonly List<Notification> _notifications;
 

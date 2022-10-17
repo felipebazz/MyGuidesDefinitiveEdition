@@ -11,9 +11,9 @@ namespace MyGuides.Notifications.Filters
     [ExcludeFromCodeCoverage]
     public class NotificationFilter : IAsyncResultFilter
     {
-        private readonly INotificationContext _notificationContext;
+        private readonly INotificationService _notificationContext;
 
-        public NotificationFilter(INotificationContext notificationContext)
+        public NotificationFilter(INotificationService notificationContext)
         {
             _notificationContext = notificationContext;
         }
