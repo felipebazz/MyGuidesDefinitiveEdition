@@ -23,19 +23,19 @@ namespace MyGuides.Infra.Data.Registrations
     {
         public static IServiceCollection RegisterData(this IServiceCollection service, IConfiguration configuration)
         {
-            var myGuidesConnectionString = configuration.GetConnectionString("DefaultConnection");
+            //var myGuidesConnectionString = configuration.GetConnectionString("DefaultConnection");
             service.AddDbContext<MyGuidesContext>();
 
-            service.AddScoped<DbContext, MyGuidesContext>()
-                .AddDbContextPool<MyGuidesContext>(
-                options => options.UseSqlServer(myGuidesConnectionString,
-                sqlOptions =>
-                {
-                    sqlOptions.EnableRetryOnFailure(
-                        maxRetryCount: 3,
-                        maxRetryDelay: TimeSpan.FromSeconds(15),
-                        errorNumbersToAdd: null);
-                }));
+            service.AddScoped<DbContext, MyGuidesContext>();
+            //    .AddDbContextPool<MyGuidesContext>(
+            //    options => options.UseSqlServer(myGuidesConnectionString,
+            //    sqlOptions =>
+            //    {
+            //        sqlOptions.EnableRetryOnFailure(
+            //            maxRetryCount: 3,
+            //            maxRetryDelay: TimeSpan.FromSeconds(15),
+            //            errorNumbersToAdd: null);
+            //    }));
 
             RegisterRepositories(service);
 

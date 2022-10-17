@@ -1,6 +1,4 @@
-
-//using Microsoft.EntityFrameworkCore;
-//using MyGuides.Infra.Data.Contexts.Database;
+using MyGuides.Startup;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,11 +6,7 @@ Console.WriteLine($"Enviroment: {builder.Environment.EnvironmentName}");
 
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-
-//builder.Services.AddDbContext<MyGuidesContext>(options =>
-//{
-//    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
-//});
+builder.RegisterStartup();
 
 // Add services to the container.
 

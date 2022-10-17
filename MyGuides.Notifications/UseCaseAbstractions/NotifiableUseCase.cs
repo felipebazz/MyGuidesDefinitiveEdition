@@ -7,19 +7,19 @@ namespace MyGuides.Notifications.UseCaseAbstractions
     [ExcludeFromCodeCoverage]
     public abstract class NotifiableUseCase
     {
-        protected readonly INotificationContext _notificationContext;
+        protected readonly INotificationService _notificationService;
 
-        protected NotifiableUseCase(INotificationContext notificationContext)
+        protected NotifiableUseCase(INotificationService notificationService)
         {
-            _notificationContext = notificationContext;
+            _notificationService = notificationService;
         }
     }
 
     [ExcludeFromCodeCoverage]
-    public abstract class NotifiableUseCase<TResult> : NotifiableUseCase, INotifiableUseCase
+    public abstract class NotifiableUseCase<TResult> : NotifiableUseCase, INotifiableUseCase<TResult>
     {
-        public NotifiableUseCase(INotificationContext notificationContext)
-            : base(notificationContext)
+        public NotifiableUseCase(INotificationService notificationService)
+            : base(notificationService)
         {
         }
 
@@ -36,7 +36,7 @@ namespace MyGuides.Notifications.UseCaseAbstractions
             }
             catch (Exception ex)
             {
-                _notificationContext.AddNotification(ex);
+                _notificationService.AddNotification(ex);
             }
 
             return default;
@@ -46,10 +46,10 @@ namespace MyGuides.Notifications.UseCaseAbstractions
     }
 
     [ExcludeFromCodeCoverage]
-    public abstract class NotifiableUseCase<TRequest, TResult> : NotifiableUseCase, INotifiableUseCase
+    public abstract class NotifiableUseCase<TRequest, TResult> : NotifiableUseCase, INotifiableUseCase<TRequest, TResult>
     {
-        public NotifiableUseCase(INotificationContext notificationContext)
-            : base(notificationContext)
+        public NotifiableUseCase(INotificationService notificationService)
+            : base(notificationService)
         {
         }
 
@@ -66,7 +66,7 @@ namespace MyGuides.Notifications.UseCaseAbstractions
             }
             catch (Exception ex)
             {
-                _notificationContext.AddNotification(ex);
+                _notificationService.AddNotification(ex);
             }
 
             return default;

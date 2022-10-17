@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
 using MyGuides.Domain.Entities.Achievements;
 using MyGuides.Domain.Entities.Banners;
 using MyGuides.Domain.Entities.BannerTypes;
@@ -37,6 +38,14 @@ namespace MyGuides.Infra.Data.Contexts.Database
             }
 
             return base.SaveChangesAsync(cancellationToken);
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlServer("Server=DESKTOP-812H3B2\\SQLEXPRESS;Database=MyGuidesCore;Trusted_Connection=True;MultipleActiveResultSets=true");
+            }
         }
     }
 }
