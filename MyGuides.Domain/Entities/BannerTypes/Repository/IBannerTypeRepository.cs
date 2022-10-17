@@ -2,7 +2,7 @@
 
 namespace MyGuides.Domain.Entities.BannerTypes.Repository
 {
-    public interface IBannerTypeRepository : IReadOnlyRepository<BannerType>
+    public interface IBannerTypeRepository : IReadOnlyRepository<BannerType, int>
     {
     }
 }
