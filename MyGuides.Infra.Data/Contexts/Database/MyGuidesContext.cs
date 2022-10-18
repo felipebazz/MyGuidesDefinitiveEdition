@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.Extensions.Configuration;
 using MyGuides.Domain.Entities.Achievements;
 using MyGuides.Domain.Entities.Banners;
 using MyGuides.Domain.Entities.BannerTypes;
@@ -11,9 +12,11 @@ namespace MyGuides.Infra.Data.Contexts.Database
 {
     public class MyGuidesContext : DbContext
     {
-        public MyGuidesContext(DbContextOptions<MyGuidesContext> options)
+        private readonly IConfiguration _configuration;
+        public MyGuidesContext(DbContextOptions<MyGuidesContext> options, IConfiguration configuration)
             : base(options)
         {
+            _configuration = configuration;
         }
 
         public DbSet<Game> Games { get; set; }
@@ -44,7 +47,14 @@ namespace MyGuides.Infra.Data.Contexts.Database
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=DESKTOP-812H3B2\\SQLEXPRESS;Database=MyGuidesCore;Trusted_Connection=True;MultipleActiveResultSets=true");
+                optionsBuilder.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"),
+                    options =>
+                    {
+                        options.EnableRetryOnFailure(
+                            maxRetryCount: 3,
+                            maxRetryDelay: TimeSpan.FromSeconds(15),
+                            errorNumbersToAdd: null);
+                    });
             }
         }
     }

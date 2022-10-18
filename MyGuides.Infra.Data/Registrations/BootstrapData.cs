@@ -23,19 +23,8 @@ namespace MyGuides.Infra.Data.Registrations
     {
         public static IServiceCollection RegisterData(this IServiceCollection service, IConfiguration configuration)
         {
-            //var myGuidesConnectionString = configuration.GetConnectionString("DefaultConnection");
             service.AddDbContext<MyGuidesContext>();
-
             service.AddScoped<DbContext, MyGuidesContext>();
-            //    .AddDbContextPool<MyGuidesContext>(
-            //    options => options.UseSqlServer(myGuidesConnectionString,
-            //    sqlOptions =>
-            //    {
-            //        sqlOptions.EnableRetryOnFailure(
-            //            maxRetryCount: 3,
-            //            maxRetryDelay: TimeSpan.FromSeconds(15),
-            //            errorNumbersToAdd: null);
-            //    }));
 
             RegisterRepositories(service);
 
@@ -50,6 +39,7 @@ namespace MyGuides.Infra.Data.Registrations
             service.AddScoped<IDifficultyRepository, DifficultyRepository>();
             service.AddScoped<IBannerTypeRepository, BannerTypeRepository>();
             service.AddScoped<IAchievementRepository, AchievementRepository>();
+            service.AddScoped<IUnitOfWork, UnitOfWork>();
         }
     }
 }
