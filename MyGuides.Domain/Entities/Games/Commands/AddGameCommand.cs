@@ -18,5 +18,9 @@ namespace MyGuides.Domain.Entities.Games.Commands
             AppId = appId;
             Achievements = achievements ?? new List<Achievement>();
         }
+
+        public AddGameCommand()
+        {
+        }
     }
 }

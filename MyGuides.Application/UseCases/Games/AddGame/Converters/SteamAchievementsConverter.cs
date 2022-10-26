@@ -1,12 +1,13 @@
 ﻿using AutoMapper;
+using MyGuides.Domain.Entities.Achievements;
 
-namespace MyGuides.Domain.Entities.Achievements.Converters
+namespace MyGuides.Application.UseCases.Games.AddGame.Converters
 {
-    public class AchievementsConverter : ITypeConverter<List<Steam.Api.Responses.Achievement>, List<Achievement>>
+    public class SteamAchievementsConverter : ITypeConverter<List<Steam.Api.Responses.Achievement>, List<Achievement>>
     {
         public List<Achievement> Convert(List<Steam.Api.Responses.Achievement> source, List<Achievement> destination, ResolutionContext context)
         {
-            destination.Clear();
+            destination = new List<Achievement>();
 
             foreach (var achievement in source)
             {

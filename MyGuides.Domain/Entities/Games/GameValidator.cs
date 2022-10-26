@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using MyGuides.Domain.Constants;
+using MyGuides.Domain.Entities.Achievements;
 
 namespace MyGuides.Domain.Entities.Games
 {
@@ -20,6 +21,13 @@ namespace MyGuides.Domain.Entities.Games
             RuleFor(x => x.AppId)
                 .NotEmpty()
                 .WithMessage("cadastrar");
+
+            //RuleFor(x => x.Achievements)
+            //    .SetInheritanceValidator(v =>
+            //    {
+            //        v.Add(new AchievementValidator());
+            //    })
+            //    .When(x => x.Achievements is not null);
         }
     }
 }

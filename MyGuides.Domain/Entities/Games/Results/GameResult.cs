@@ -6,6 +6,6 @@
         public string AppId { get; set; }
         public string Name { get; set; }
         public DateTime ImportDate { get; set; }
-        public DateTime UpdateDate { get; set; }
+        public DateTime? UpdateDate { get; set; }
     }
 }

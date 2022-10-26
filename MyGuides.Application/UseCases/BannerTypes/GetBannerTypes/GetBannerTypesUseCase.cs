@@ -5,12 +5,12 @@ using MyGuides.Domain.Entities.BannerTypes.Results;
 using MyGuides.Notifications.Context;
 using Steam.Api.Interfaces;
 
-namespace MyGuides.Application.UseCases
+namespace MyGuides.Application.UseCases.BannerTypes.GetBannerTypes
 {
     public class GetBannerTypesUseCase : UseCase<IEnumerable<BannerTypeResult>>, IGetBannerTypesUseCase
     {
         private readonly ISteamUserStats _steamApi;
-        public GetBannerTypesUseCase(IMediator mediator, INotificationService notificationContext, ISteamUserStats steamApi) 
+        public GetBannerTypesUseCase(IMediator mediator, INotificationService notificationContext, ISteamUserStats steamApi)
             : base(mediator, notificationContext)
         {
             _steamApi = steamApi;
@@ -35,6 +35,6 @@ namespace MyGuides.Application.UseCases
 
             return await _mediator.Send(new GetBannerTypesQuery(), cancellationToken);
         }
-            //=> _mediator.Send(new GetBannerTypesQuery(), cancellationToken);
+        //=> _mediator.Send(new GetBannerTypesQuery(), cancellationToken);
     }
 }
