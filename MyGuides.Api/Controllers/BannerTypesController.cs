@@ -17,5 +17,11 @@ namespace MyGuides.Api.Controllers
         {
             return Ok(await useCase.ExecuteAsync(cancellationToken));
         }
+
+        //[HttpGet("appId")]
+        //public async Task<IActionResult> TestApiIntegration(long appId)
+        //{
+
+        //}
     }
 }
