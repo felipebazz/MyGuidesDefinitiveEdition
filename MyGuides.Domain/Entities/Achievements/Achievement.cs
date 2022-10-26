@@ -21,7 +21,7 @@ namespace MyGuides.Domain.Entities.Achievements
         public Guid? DifficultyId { get; private set; }
         public Difficulty? Difficulty { get; private set; }
 
-        public Achievement(Guid id, string name, string description, string displayName, bool hidden, string icon, string iconGray, Game game)
+        public Achievement(Guid id, string name, string description, string displayName, bool hidden, string icon, string iconGray)
             : base(id)
         {
             Name = name;
@@ -30,7 +30,6 @@ namespace MyGuides.Domain.Entities.Achievements
             Hidden = hidden;
             Icon = icon;
             IconGray = iconGray;
-            SetGame(game);
 
             Validate();
         }
