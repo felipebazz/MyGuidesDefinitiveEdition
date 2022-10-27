@@ -1,6 +1,9 @@
 <h1 align="left">My Guides</h1>
 <div align="left" valign="top">
   <img align="center" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg"/>
+  <img align="center" src="https://github.com/legendarygodspeed/MyGuidesDefinitiveEdition/actions/workflows/dotnet.yml/badge.svg?branch=master"/>
+  
+
 </div>
 <br>
 <div align="left" valign="top" >
