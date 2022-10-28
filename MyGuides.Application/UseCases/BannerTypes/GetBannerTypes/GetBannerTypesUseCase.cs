@@ -9,11 +9,9 @@ namespace MyGuides.Application.UseCases.BannerTypes.GetBannerTypes
 {
     public class GetBannerTypesUseCase : UseCase<IEnumerable<BannerTypeResult>>, IGetBannerTypesUseCase
     {
-        private readonly ISteamUserStats _steamApi;
-        public GetBannerTypesUseCase(IMediator mediator, INotificationService notificationContext, ISteamUserStats steamApi)
+        public GetBannerTypesUseCase(IMediator mediator, INotificationService notificationContext)
             : base(mediator, notificationContext)
         {
-            _steamApi = steamApi;
         }
 
         protected async override Task<IEnumerable<BannerTypeResult>> OnExecuteAsync(CancellationToken cancellationToken)

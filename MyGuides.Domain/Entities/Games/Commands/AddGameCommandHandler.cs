@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
 using MyGuides.Domain.Entities.Games.Repository;
 using MyGuides.Domain.Entities.Games.Results;
 
@@ -7,10 +8,12 @@ namespace MyGuides.Domain.Entities.Games.Commands
     public class AddGameCommandHandler : IRequestHandler<AddGameCommand, GameResult>
     {
         private readonly IGameRepository _gameRepository;
+        private readonly IMapper _mapper;
 
-        public AddGameCommandHandler(IGameRepository gameRepository)
+        public AddGameCommandHandler(IGameRepository gameRepository, IMapper mapper)
         {
             _gameRepository = gameRepository;
+            _mapper = mapper;
         }
 
         public async Task<GameResult> Handle(AddGameCommand request, CancellationToken cancellationToken)
@@ -43,15 +46,7 @@ namespace MyGuides.Domain.Entities.Games.Commands
             }
 
             await _gameRepository.AddAsync(game, cancellationToken);
-
-            return new GameResult()
-            {
-                AppId = game.AppId,
-                Name = game.Name,
-                Id = game.Id,
-                ImportDate = game.ImportDate,
-                //UpdateDate = game.UpdateDate.Value
-            };
+            return _mapper.Map<GameResult>(game);
         }
     }
 }

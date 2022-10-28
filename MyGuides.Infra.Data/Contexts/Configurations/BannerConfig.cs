@@ -14,9 +14,7 @@ namespace MyGuides.Infra.Data.Contexts.Configurations
             builder.HasKey(p => p.Id);
 
             builder.Property(p => p.Id)
-                .HasColumnType("binary(16)")
-                .ValueGeneratedNever()
-                .HasConversion(c => c.ToByteArray(), c => new Guid(c));
+                .HasColumnType("binary(16)");
 
             builder.Property(p => p.ImageId)
                 .IsRequired()

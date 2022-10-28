@@ -5,9 +5,9 @@ using MyGuides.Domain.Entities.Games;
 
 namespace MyGuides.Application.Profiles
 {
-    public class MapperProfile : Profile
+    public class ApplicationMapperProfile : Profile
     {
-        public MapperProfile()
+        public ApplicationMapperProfile()
         {
             CreateMap<Steam.Api.Responses.Game, Game>()
                 .ConvertUsing(new SteamGameConverter());
