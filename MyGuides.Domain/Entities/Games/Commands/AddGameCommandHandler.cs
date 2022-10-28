@@ -16,7 +16,7 @@ namespace MyGuides.Domain.Entities.Games.Commands
         public async Task<GameResult> Handle(AddGameCommand request, CancellationToken cancellationToken)
         {
             //verificar se já existe no banco via appId
-            if (_gameRepository.Any(g => g.AppId == request.AppId))
+            if (_gameRepository.Any(g => request.AppId.Equals(g.AppId)))
             {
                 //Add notification
             }
@@ -36,6 +36,12 @@ namespace MyGuides.Domain.Entities.Games.Commands
                 //add notification
             }
 
+            foreach (var achievement in game.Achievements)
+            {
+                achievement.SetGame(game);
+                achievement.Validate();
+            }
+
             await _gameRepository.AddAsync(game, cancellationToken);
 
             return new GameResult()
@@ -44,10 +50,8 @@ namespace MyGuides.Domain.Entities.Games.Commands
                 Name = game.Name,
                 Id = game.Id,
                 ImportDate = game.ImportDate,
-                UpdateDate = game.UpdateDate.Value
+                //UpdateDate = game.UpdateDate.Value
             };
-
-            throw new NotImplementedException();
         }
     }
 }

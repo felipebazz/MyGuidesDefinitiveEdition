@@ -24,25 +24,25 @@ namespace MyGuides.Infra.Data.Migrations
 
             modelBuilder.Entity("MyGuides.Domain.Entities.Achievements.Achievement", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<byte[]>("Id")
+                        .HasColumnType("binary(16)");
 
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(512)
                         .HasColumnType("nvarchar(512)");
 
-                    b.Property<Guid?>("DifficultyId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<byte[]>("DifficultyId")
+                        .HasColumnType("binary(16)");
 
                     b.Property<string>("DisplayName")
                         .IsRequired()
                         .HasMaxLength(120)
                         .HasColumnType("nvarchar(120)");
 
-                    b.Property<Guid>("GameId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<byte[]>("GameId")
+                        .IsRequired()
+                        .HasColumnType("binary(16)");
 
                     b.Property<bool>("Hidden")
                         .HasColumnType("bit");
@@ -65,8 +65,8 @@ namespace MyGuides.Infra.Data.Migrations
                     b.Property<long?>("Order")
                         .HasColumnType("bigint");
 
-                    b.Property<Guid?>("SectionId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<byte[]>("SectionId")
+                        .HasColumnType("binary(16)");
 
                     b.HasKey("Id");
 
@@ -81,9 +81,8 @@ namespace MyGuides.Infra.Data.Migrations
 
             modelBuilder.Entity("MyGuides.Domain.Entities.Banners.Banner", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<byte[]>("Id")
+                        .HasColumnType("binary(16)");
 
                     b.Property<int>("BannerTypeId")
                         .HasColumnType("int");
@@ -98,8 +97,9 @@ namespace MyGuides.Infra.Data.Migrations
                         .HasMaxLength(512)
                         .HasColumnType("nvarchar(512)");
 
-                    b.Property<Guid>("SectionId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<byte[]>("SectionId")
+                        .IsRequired()
+                        .HasColumnType("binary(16)");
 
                     b.Property<string>("Url")
                         .IsRequired()
@@ -143,9 +143,8 @@ namespace MyGuides.Infra.Data.Migrations
 
             modelBuilder.Entity("MyGuides.Domain.Entities.Difficulties.Difficulty", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<byte[]>("Id")
+                        .HasColumnType("binary(16)");
 
                     b.Property<string>("Image")
                         .IsRequired()
@@ -170,9 +169,8 @@ namespace MyGuides.Infra.Data.Migrations
 
             modelBuilder.Entity("MyGuides.Domain.Entities.Games.Game", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<byte[]>("Id")
+                        .HasColumnType("binary(16)");
 
                     b.Property<string>("AppId")
                         .IsRequired()
@@ -200,9 +198,8 @@ namespace MyGuides.Infra.Data.Migrations
 
             modelBuilder.Entity("MyGuides.Domain.Entities.Sections.Section", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<byte[]>("Id")
+                        .HasColumnType("binary(16)");
 
                     b.Property<string>("Content")
                         .IsRequired()

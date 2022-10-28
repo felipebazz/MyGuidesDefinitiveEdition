@@ -9,41 +9,41 @@ namespace MyGuides.Domain.Entities.Achievements
         {
             RuleFor(x => x.Name)
                 .NotEmpty()
-                .WithMessage("adicionar mensagens no projeto")
+                .WithMessage("name")
                 .MaximumLength(FieldRules.NameMaxLength)
-                .WithMessage("adicionar mensagens no projeto");
+                .WithMessage("name");
 
             RuleFor(x => x.DisplayName)
                 .NotEmpty()
-                .WithMessage("adicionar mensagens no projeto")
+                .WithMessage("displayname")
                 .MaximumLength(FieldRules.NameMaxLength)
-                .WithMessage("adicionar mensagens no projeto");
+                .WithMessage("displayname");
 
             RuleFor(x => x.Description)
                 .NotEmpty()
-                .WithMessage("adicionar mensagens no projeto")
+                .WithMessage("Description")
                 .MaximumLength(FieldRules.TextFieldMaxLength)
-                .WithMessage("adicionar mensagens no projeto");
+                .WithMessage("Description");
 
             RuleFor(x => x.Hidden)
                 .NotEmpty()
-                .WithMessage("adicionar mensagens no projeto");
+                .WithMessage("Hidden");
 
             RuleFor(x => x.IconGray)
                 .NotEmpty()
-                .WithMessage("adicionar mensagens no projeto")
+                .WithMessage("IconGray")
                 .MaximumLength(FieldRules.TextFieldMaxLength)
-                .WithMessage("adicionar mensagens no projeto");
+                .WithMessage("IconGray");
 
             RuleFor(x => x.Icon)
                 .NotEmpty()
-                .WithMessage("adicionar mensagens no projeto")
+                .WithMessage("Icon")
                 .MaximumLength(FieldRules.TextFieldMaxLength)
-                .WithMessage("adicionar mensagens no projeto");
+                .WithMessage("Icon");
 
             RuleFor(x => x.GameId)
                 .NotEmpty()
-                .WithMessage("cadastrar");
+                .WithMessage("GameId");
         }
     }
 }

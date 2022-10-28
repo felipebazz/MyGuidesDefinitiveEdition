@@ -27,7 +27,7 @@ namespace MyGuides.Infra.Data.Migrations
                 name: "Difficulty",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<byte[]>(type: "binary(16)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(120)", maxLength: 120, nullable: false),
                     Image = table.Column<string>(type: "nvarchar(512)", maxLength: 512, nullable: false),
                     ImageId = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -42,7 +42,7 @@ namespace MyGuides.Infra.Data.Migrations
                 name: "Game",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<byte[]>(type: "binary(16)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(120)", maxLength: 120, nullable: false),
                     Version = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     AppId = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -58,7 +58,7 @@ namespace MyGuides.Infra.Data.Migrations
                 name: "Section",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<byte[]>(type: "binary(16)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(120)", maxLength: 120, nullable: false),
                     Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsIndividual = table.Column<bool>(type: "bit", nullable: false)
@@ -72,7 +72,7 @@ namespace MyGuides.Infra.Data.Migrations
                 name: "Achievement",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<byte[]>(type: "binary(16)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(120)", maxLength: 120, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(512)", maxLength: 512, nullable: false),
                     DisplayName = table.Column<string>(type: "nvarchar(120)", maxLength: 120, nullable: false),
@@ -80,9 +80,9 @@ namespace MyGuides.Infra.Data.Migrations
                     Icon = table.Column<string>(type: "nvarchar(512)", maxLength: 512, nullable: false),
                     IconGray = table.Column<string>(type: "nvarchar(512)", maxLength: 512, nullable: false),
                     Order = table.Column<long>(type: "bigint", nullable: true),
-                    GameId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    SectionId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    DifficultyId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    GameId = table.Column<byte[]>(type: "binary(16)", nullable: false),
+                    SectionId = table.Column<byte[]>(type: "binary(16)", nullable: true),
+                    DifficultyId = table.Column<byte[]>(type: "binary(16)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -109,12 +109,12 @@ namespace MyGuides.Infra.Data.Migrations
                 name: "Banner",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<byte[]>(type: "binary(16)", nullable: false),
                     ImageId = table.Column<string>(type: "nvarchar(512)", maxLength: 512, nullable: false),
                     Name = table.Column<string>(type: "nvarchar(512)", maxLength: 512, nullable: false),
                     Url = table.Column<string>(type: "nvarchar(512)", maxLength: 512, nullable: false),
                     BannerTypeId = table.Column<int>(type: "int", nullable: false),
-                    SectionId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    SectionId = table.Column<byte[]>(type: "binary(16)", nullable: false)
                 },
                 constraints: table =>
                 {

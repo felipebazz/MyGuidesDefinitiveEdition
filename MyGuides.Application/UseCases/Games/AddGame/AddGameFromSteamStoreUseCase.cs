@@ -37,7 +37,7 @@ namespace MyGuides.Application.UseCases.Games.AddGame
 
                 request.StoreId = AppIdConverter.GetAppId(request.StoreId);
 
-                var result = await _steamApi.GetSchemaForGameAsync("29B79E492F3ED25D06DD4C3BC6C63E7B", request.StoreId);
+                var result = await _steamApi.GetSchemaForGameAsync("AF458C11CC9AAF3E010199B1E61849DE", request.StoreId);
 
                 if (result is null)
                 {

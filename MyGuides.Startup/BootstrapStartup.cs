@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.Extensions.DependencyInjection;
 using MyGuides.Application.Registrations;
 using MyGuides.Domain.Registrations;
 using MyGuides.Infra.Data.Registrations;
@@ -11,6 +13,7 @@ namespace MyGuides.Startup
     {
         public static void RegisterStartup(this WebApplicationBuilder builder)
         {
+            ConfigureCultureInfo(builder);
             AddBootstrapMyGuides(builder);
             AddExternalApis(builder);
         }
@@ -26,6 +29,15 @@ namespace MyGuides.Startup
         private static void AddExternalApis(WebApplicationBuilder builder)
         {
             builder.Services.RegisterSteamApi(builder.Configuration);
+        }
+
+        private static void ConfigureCultureInfo(WebApplicationBuilder builder)
+        {
+            builder.Services.Configure<RequestLocalizationOptions>(
+                options =>
+                {
+                    options.DefaultRequestCulture = new RequestCulture("pt-BR");
+                });
         }
     }
 }
