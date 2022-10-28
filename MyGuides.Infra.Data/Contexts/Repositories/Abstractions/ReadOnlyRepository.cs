@@ -134,7 +134,7 @@ namespace MyGuides.Infra.Data.Contexts.Repositories.Abstractions
             => _dbSet.Any(x => x.Equals(x.Id));
 
         public virtual Task<bool> AnyAsync(TId id, CancellationToken cancellationToken)
-            => _dbSet.AnyAsync(x => x.Equals(x.Id), cancellationToken);
+            => _dbSet.AnyAsync(x => id.Equals(x.Id), cancellationToken);
 
         public virtual TEntity GetById(TId id, Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>> include = default, bool asTracking = default)
         {

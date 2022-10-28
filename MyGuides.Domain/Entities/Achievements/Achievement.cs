@@ -36,7 +36,7 @@ namespace MyGuides.Domain.Entities.Achievements
 
         protected Achievement() { }
 
-        private void SetGame(Game game)
+        public void SetGame(Game game)
         {
             if (game is null)
                 return;

@@ -32,16 +32,16 @@ namespace MyGuides.Infra.Data.Contexts.Database
             base.OnModelCreating(modelBuilder);
         }
 
-        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken)
-        {
-            foreach (var entry in ChangeTracker.Entries().Where(entry => entry.Entity.GetType().GetProperty("UpdateDate") != null))
-            {
-                if (entry.State == EntityState.Modified)
-                    entry.Property("UpdateDate").CurrentValue = DateTime.Now;
-            }
+        //public override Task<int> SaveChangesAsync(CancellationToken cancellationToken)
+        //{
+        //    foreach (var entry in ChangeTracker.Entries().Where(entry => entry.Entity.GetType().GetProperty("UpdateDate") != null))
+        //    {
+        //        if (entry.State == EntityState.Modified)
+        //            entry.Property("UpdateDate").CurrentValue = DateTime.Now;
+        //    }
 
-            return base.SaveChangesAsync(cancellationToken);
-        }
+        //    return base.SaveChangesAsync(cancellationToken);
+        //}
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

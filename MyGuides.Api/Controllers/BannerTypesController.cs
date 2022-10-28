@@ -9,19 +9,11 @@ namespace MyGuides.Api.Controllers
     [Route("api/banner-types")]
     public class BannerTypesController : ControllerBase
     {
-        [HttpGet(Name = "Obter os tipos de Banner")]
+        [HttpGet]
         [ProducesResponseType(typeof(RequestResult<BannerTypeResult>), StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(RequestResult), StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(typeof(RequestResult), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetBannerTypes([FromServices] IGetBannerTypesUseCase useCase, CancellationToken cancellationToken)
         {
             return Ok(await useCase.ExecuteAsync(cancellationToken));
         }
-
-        //[HttpGet("appId")]
-        //public async Task<IActionResult> TestApiIntegration(long appId)
-        //{
-
-        //}
     }
 }

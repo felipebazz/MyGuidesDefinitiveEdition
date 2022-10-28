@@ -15,6 +15,11 @@ namespace MyGuides.Infra.Data.Contexts.Configurations
 
             builder.HasKey(x => x.Id);
 
+            builder.Property(p => p.Id)
+                .HasColumnType("binary(16)")
+                .ValueGeneratedNever()
+                .HasConversion(c => c.ToByteArray(), c => new Guid(c));
+
             builder.Property(p => p.Name)
                 .IsRequired()
                 .HasMaxLength(FieldRules.NameMaxLength);

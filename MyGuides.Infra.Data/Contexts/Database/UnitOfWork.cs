@@ -13,6 +13,6 @@ namespace MyGuides.Infra.Data.Contexts.Database
             _dbContext = dbContext;
         }
 
-        public Task SaveChangesAsync(CancellationToken cancellationToken) => _dbContext.SaveChangesAsync(cancellationToken);   
+        public Task SaveChangesAsync(CancellationToken cancellationToken) => _dbContext.SaveChangesAsync(true, cancellationToken);   
     }
 }

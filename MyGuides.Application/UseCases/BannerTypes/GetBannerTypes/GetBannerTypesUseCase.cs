@@ -17,24 +17,6 @@ namespace MyGuides.Application.UseCases.BannerTypes.GetBannerTypes
         }
 
         protected async override Task<IEnumerable<BannerTypeResult>> OnExecuteAsync(CancellationToken cancellationToken)
-        {
-            try
-            {
-                var result = await _steamApi.GetSchemaForGameAsync("29B79E492F3ED25D06DD4C3BC6C63E7B", "254700");
-
-                if (result == null)
-                {
-                    return default;
-                }
-            }
-            catch (Exception ex)
-            {
-
-            }
-
-
-            return await _mediator.Send(new GetBannerTypesQuery(), cancellationToken);
-        }
-        //=> _mediator.Send(new GetBannerTypesQuery(), cancellationToken);
+                => await _mediator.Send(new GetBannerTypesQuery(), cancellationToken);
     }
 }
