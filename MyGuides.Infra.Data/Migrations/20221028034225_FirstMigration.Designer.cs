@@ -12,7 +12,7 @@ using MyGuides.Infra.Data.Contexts.Database;
 namespace MyGuides.Infra.Data.Migrations
 {
     [DbContext(typeof(MyGuidesContext))]
-    [Migration("20221026133402_FirstMigration")]
+    [Migration("20221028034225_FirstMigration")]
     partial class FirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,6 +27,7 @@ namespace MyGuides.Infra.Data.Migrations
             modelBuilder.Entity("MyGuides.Domain.Entities.Achievements.Achievement", b =>
                 {
                     b.Property<byte[]>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("binary(16)");
 
                     b.Property<string>("Description")
@@ -84,6 +85,7 @@ namespace MyGuides.Infra.Data.Migrations
             modelBuilder.Entity("MyGuides.Domain.Entities.Banners.Banner", b =>
                 {
                     b.Property<byte[]>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("binary(16)");
 
                     b.Property<int>("BannerTypeId")
@@ -146,6 +148,7 @@ namespace MyGuides.Infra.Data.Migrations
             modelBuilder.Entity("MyGuides.Domain.Entities.Difficulties.Difficulty", b =>
                 {
                     b.Property<byte[]>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("binary(16)");
 
                     b.Property<string>("Image")
@@ -172,6 +175,7 @@ namespace MyGuides.Infra.Data.Migrations
             modelBuilder.Entity("MyGuides.Domain.Entities.Games.Game", b =>
                 {
                     b.Property<byte[]>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("binary(16)");
 
                     b.Property<string>("AppId")
@@ -201,6 +205,7 @@ namespace MyGuides.Infra.Data.Migrations
             modelBuilder.Entity("MyGuides.Domain.Entities.Sections.Section", b =>
                 {
                     b.Property<byte[]>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("binary(16)");
 
                     b.Property<string>("Content")

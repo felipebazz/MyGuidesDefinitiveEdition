@@ -3,6 +3,8 @@ using Microsoft.Extensions.DependencyInjection;
 using MyGuides.Application.Profiles;
 using MyGuides.Application.UseCases.BannerTypes.GetBannerTypes;
 using MyGuides.Application.UseCases.Games.AddGame;
+using MyGuides.Application.UseCases.Games.GetGames;
+using MyGuides.Domain.Entities.Profiles;
 
 namespace MyGuides.Application.Registrations
 {
@@ -14,6 +16,7 @@ namespace MyGuides.Application.Registrations
 
             service.AddScoped<IGetBannerTypesUseCase, GetBannerTypesUseCase>();
             service.AddScoped<IAddGameFromSteamStoreUseCase, AddGameFromSteamStoreUseCase>();
+            service.AddScoped<IGetGamesUseCase, GetGamesUseCase>();
 
             return service;
         }
@@ -22,7 +25,8 @@ namespace MyGuides.Application.Registrations
         {
             var mapperConfig = new MapperConfiguration(mc =>
             {
-                mc.AddProfile(new MapperProfile());
+                mc.AddProfile(new ApplicationMapperProfile());
+                mc.AddProfile(new DomainMapperProfile());
             });
 
             IMapper mapper = mapperConfig.CreateMapper();

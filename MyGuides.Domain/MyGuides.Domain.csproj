@@ -23,7 +23,6 @@
     <Folder Include="Entities\Achievements\Converters\" />
     <Folder Include="Entities\Achievements\Results\" />
     <Folder Include="Entities\Achievements\Queries\" />
-    <Folder Include="Entities\Games\Converters\" />
   </ItemGroup>
 
 </Project>
