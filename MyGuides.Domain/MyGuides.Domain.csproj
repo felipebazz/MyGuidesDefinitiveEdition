@@ -20,9 +20,7 @@
 
   <ItemGroup>
     <Folder Include="Entities\Achievements\Commands\" />
-    <Folder Include="Entities\Achievements\Converters\" />
-    <Folder Include="Entities\Achievements\Results\" />
-    <Folder Include="Entities\Achievements\Queries\" />
+    <Folder Include="Entities\Difficulties\Commands\" />
   </ItemGroup>
 
 </Project>

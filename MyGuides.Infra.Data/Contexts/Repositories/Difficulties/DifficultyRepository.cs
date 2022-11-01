@@ -7,8 +7,8 @@ namespace MyGuides.Infra.Data.Contexts.Repositories.Difficulties
 {
     public class DifficultyRepository : Repository<Difficulty, Guid>, IDifficultyRepository
     {
-        public DifficultyRepository(MyGuidesContext dbContext) 
-            : base(dbContext)
+        public DifficultyRepository(MyGuidesContext dbContext)
+        : base(dbContext)
         {
         }
     }

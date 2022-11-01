@@ -1,4 +1,7 @@
 ﻿using AutoMapper;
+using MyGuides.Domain.Entities.Achievements;
+using MyGuides.Domain.Entities.Achievements.Converters;
+using MyGuides.Domain.Entities.Achievements.Results;
 using MyGuides.Domain.Entities.Games;
 using MyGuides.Domain.Entities.Games.Converters;
 using MyGuides.Domain.Entities.Games.Results;
@@ -14,6 +17,9 @@ namespace MyGuides.Domain.Entities.Profiles
 
             CreateMap<List<Game>, List<GameResult>>()
                 .ConvertUsing(new ToGameResultListConverter());
+
+            CreateMap<List<Achievement>, List<AchievementResult>>()
+                .ConvertUsing(new ToAchievementResultConverter());
         }
     }
 }
