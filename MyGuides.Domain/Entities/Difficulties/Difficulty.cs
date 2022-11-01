@@ -5,10 +5,10 @@ namespace MyGuides.Domain.Entities.Difficulties
 {
     public class Difficulty : Entity<Guid>
     {
-        public string Name { get; set; }
-        public string Image { get; set; }
-        public string? ImageId { get; set; }
-        public long Order { get; set; }
+        public string Name { get; private set; }
+        public string Image { get; private set; }
+        public string? ImageId { get; private set; }
+        public long Order { get; private set; }
         public List<Achievement> Achievements { get; set; }
 
         public Difficulty(string name, string image, long order, List<Achievement> achievements)

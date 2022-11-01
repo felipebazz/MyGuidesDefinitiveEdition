@@ -7,8 +7,8 @@ namespace MyGuides.Infra.Data.Contexts.Repositories.Achievements
 {
     public class AchievementRepository : Repository<Achievement, Guid>, IAchievementRepository
     {
-        public AchievementRepository(MyGuidesContext dbContext) 
-            : base(dbContext)
+        public AchievementRepository(MyGuidesContext dbContext)
+        : base(dbContext)
         {
         }
     }
