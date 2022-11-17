@@ -6,7 +6,7 @@ Console.WriteLine($"Enviroment: {builder.Environment.EnvironmentName}");
 
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-builder.RegisterStartup();
+builder.RegisterStartup(builder.Environment);
 
 // Add services to the container.
 

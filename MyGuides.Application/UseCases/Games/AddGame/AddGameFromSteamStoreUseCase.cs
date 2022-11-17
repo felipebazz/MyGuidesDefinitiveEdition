@@ -9,16 +9,17 @@ using MyGuides.Domain.Entities.Games.Results;
 using MyGuides.Infra.Data.Contexts.Database;
 using MyGuides.Notifications.Context;
 using MyGuides.Utils;
-using Steam.Api.Interfaces;
+using Steam.Api.Clients.WebApi;
 
 namespace MyGuides.Application.UseCases.Games.AddGame
 {
     public class AddGameFromSteamStoreUseCase : TransactionalUseCase<AddGameRequest, GameResult>, IAddGameFromSteamStoreUseCase
     {
-        private readonly ISteamUserStats _steamApi;
+        //private readonly ISteamUserStats _steamApi;
+        private readonly SteamWebApiClient _steamApi;
         private readonly IMapper _mapper;
 
-        public AddGameFromSteamStoreUseCase(IMediator mediator, IUnitOfWork unitOfWork, INotificationService notificationService, ISteamUserStats steamApi, IMapper mapper)
+        public AddGameFromSteamStoreUseCase(IMediator mediator, IUnitOfWork unitOfWork, INotificationService notificationService, SteamWebApiClient steamApi, IMapper mapper)
             : base(mediator, unitOfWork, notificationService)
         {
             _steamApi = steamApi;
