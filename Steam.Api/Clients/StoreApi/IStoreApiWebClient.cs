@@ -1,6 +1,5 @@
 ﻿using Refit;
 using Steam.Api.Clients.StoreApi.Configurations;
-using Steam.Api.Clients.StoreApi.Responses;
 using Steam.Api.Registrations;
 using Steam.Api.Registrations.ConfigBuilder;
 

@@ -46,6 +46,8 @@ namespace MyGuides.Application.Registrations
             service.RegisterSteamWebClients(configuration, environment)
                 .AddSteamWebApiClient()
                 .AddStoreApiWebClient();
+
+            service.RegisterStoreService();
         }
     }
 }

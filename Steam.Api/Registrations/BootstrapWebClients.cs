@@ -3,8 +3,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Refit;
 using Steam.Api.Abstractions;
+using Steam.Api.Clients.StoreApi;
 using Steam.Api.Configuration.Clients;
 using Steam.Api.Registrations.ConfigBuilder;
+using System.Runtime.CompilerServices;
 
 namespace Steam.Api.Registrations
 {
@@ -21,6 +23,13 @@ namespace Steam.Api.Registrations
 
 
             return new SteamWebClientConfigBuilder(services);
+        }
+
+        public static IServiceCollection RegisterStoreService(this IServiceCollection service)
+        {
+            service.AddScoped<IStoreApiClient, StoreApiClient>();
+
+            return service;
         }
 
         internal static ISteamWebClientConfigBuilder AddHttpClient<THttpClient, THttpClientConfig>(this ISteamWebClientConfigBuilder configBuilder, HttpClientConfigFactory<THttpClientConfig> httpClientConfigFactory = null)
