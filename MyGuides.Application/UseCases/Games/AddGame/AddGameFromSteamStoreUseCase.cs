@@ -17,7 +17,6 @@ namespace MyGuides.Application.UseCases.Games.AddGame
     public class AddGameFromSteamStoreUseCase : TransactionalUseCase<AddGameRequest, GameResult>, IAddGameFromSteamStoreUseCase
     {
         private readonly ISteamWebApiClient _steamApi;
-        private readonly IStoreApiWebClient _storeApi;
         private readonly IStoreApiClient _storeApiClient;
         private readonly IMapper _mapper;
 
@@ -25,15 +24,13 @@ namespace MyGuides.Application.UseCases.Games.AddGame
             IMediator mediator, 
             IUnitOfWork unitOfWork, 
             INotificationService notificationService, 
-            ISteamWebApiClient steamApi, 
-            //IStoreApiWebClient storeApi,
+            ISteamWebApiClient steamApi,
             IStoreApiClient storeApiClient,
             IMapper mapper)
             : base(mediator, unitOfWork, notificationService)
         {
             _storeApiClient = storeApiClient;
             _steamApi = steamApi;
-            //_storeApi = storeApi;
             _mapper = mapper;
         }
 
@@ -50,8 +47,6 @@ namespace MyGuides.Application.UseCases.Games.AddGame
                 request.StoreId = AppIdConverter.GetAppId(request.StoreId);
 
                 var result = await _steamApi.GetSchemaForGameAsync("AF458C11CC9AAF3E010199B1E61849DE", request.StoreId);
-                var teste = await _storeApiClient.GetAppDetailsFromStore("254700");
-                //verificar se já existe, se sim, verificar o número de achievements, se for maior, adicionar os novos achievements
 
                 if (result is null)
                 {

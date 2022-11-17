@@ -14,7 +14,7 @@ namespace MyGuides.Application.UseCases.Games.AddGame.Converters
                 destination.Add(new Achievement(
                     Guid.NewGuid(),
                     achievement.Name,
-                    achievement.Description,
+                    achievement.Hidden == 0 ? achievement.Description : "",
                     achievement.DisplayName,
                     achievement.Hidden == 1 ? true : false,
                     achievement.Icon,
