@@ -12,6 +12,7 @@ namespace MyGuides.Domain.Entities.Games.Converters
                 AppId = source.AppId,
                 Id = source.Id,
                 Name = source.Name,
+                Achievements = source.Achievements != null ? source.Achievements.Count() : 0,
                 ImportDate = source.ImportDate.ToShortDateString(),
                 UpdateDate = source.UpdateDate.HasValue ? source.UpdateDate.Value.ToShortDateString() : null
             };
