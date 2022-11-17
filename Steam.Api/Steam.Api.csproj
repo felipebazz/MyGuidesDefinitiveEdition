@@ -10,12 +10,9 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="6.0.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+    <!--<PackageReference Include="Newtonsoft.Json" Version="9.0.1" />-->
     <PackageReference Include="Refit.HttpClientFactory" Version="6.3.2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Clients\StoreApi\Responses\" />
+    <PackageReference Include="Refit.Newtonsoft.Json" Version="6.3.2" />
   </ItemGroup>
 
 </Project>

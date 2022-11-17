@@ -3,7 +3,6 @@ using MyGuides.Application.Abstractions;
 using MyGuides.Domain.Entities.BannerTypes.Queries;
 using MyGuides.Domain.Entities.BannerTypes.Results;
 using MyGuides.Notifications.Context;
-using Steam.Api.Interfaces;
 
 namespace MyGuides.Application.UseCases.BannerTypes.GetBannerTypes
 {

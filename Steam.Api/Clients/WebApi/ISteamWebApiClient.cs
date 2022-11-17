@@ -7,7 +7,7 @@ using Steam.Api.Responses;
 
 namespace Steam.Api.Clients.WebApi
 {
-    public interface SteamWebApiClient
+    public interface ISteamWebApiClient
     {
         [Get("/ISteamUserStats/GetSchemaForGame/v2?key={apiKey}&appId={appId}")]
         Task<SchemaForGameResponse> GetSchemaForGameAsync([Query][AliasAs("apiKey")] string apiKey, [Query][AliasAs("appId")] string appId);
@@ -16,6 +16,6 @@ namespace Steam.Api.Clients.WebApi
     public static class BootstrapSteamWebApiClient
     {
         public static ISteamWebClientConfigBuilder AddSteamWebApiClient(this ISteamWebClientConfigBuilder configBuilder)
-            => configBuilder.AddHttpClient<SteamWebApiClient, SteamWebApiClientConfig>(new SteamWebApiClientConfigFactory());
+            => configBuilder.AddHttpClient<ISteamWebApiClient, SteamWebApiClientConfig>(new SteamWebApiClientConfigFactory());
     }
 }
