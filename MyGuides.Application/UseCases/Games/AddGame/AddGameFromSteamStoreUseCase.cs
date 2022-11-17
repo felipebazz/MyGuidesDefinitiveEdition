@@ -51,6 +51,7 @@ namespace MyGuides.Application.UseCases.Games.AddGame
 
                 var result = await _steamApi.GetSchemaForGameAsync("AF458C11CC9AAF3E010199B1E61849DE", request.StoreId);
                 var teste = await _storeApiClient.GetAppDetailsFromStore("254700");
+                //verificar se já existe, se sim, verificar o número de achievements, se for maior, adicionar os novos achievements
 
                 if (result is null)
                 {

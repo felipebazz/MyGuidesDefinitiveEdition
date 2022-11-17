@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using MyGuides.Domain.Entities.Games.Repository;
 using MyGuides.Domain.Entities.Games.Results;
 
@@ -16,7 +17,7 @@ namespace MyGuides.Domain.Entities.Games.Queries
         }
         public async Task<IEnumerable<GameResult>> Handle(GetGamesQuery request, CancellationToken cancellationToken)
         {
-            var games = await _gameRepository.GetAsync(cancellationToken);
+            var games = await _gameRepository.GetAsync(g => g.Name != null, cancellationToken, include: game => game.Include(x => x.Achievements));
 
             return _mapper.Map<List<GameResult>>(games.OrderBy(o => o.UpdateDate ?? o.ImportDate));
         }
