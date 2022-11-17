@@ -9,19 +9,31 @@ using MyGuides.Domain.Entities.Games.Results;
 using MyGuides.Infra.Data.Contexts.Database;
 using MyGuides.Notifications.Context;
 using MyGuides.Utils;
-using Steam.Api.Interfaces;
+using Steam.Api.Clients.StoreApi;
+using Steam.Api.Clients.WebApi;
 
 namespace MyGuides.Application.UseCases.Games.AddGame
 {
     public class AddGameFromSteamStoreUseCase : TransactionalUseCase<AddGameRequest, GameResult>, IAddGameFromSteamStoreUseCase
     {
-        private readonly ISteamUserStats _steamApi;
+        private readonly ISteamWebApiClient _steamApi;
+        private readonly IStoreApiWebClient _storeApi;
+        private readonly IStoreApiClient _storeApiClient;
         private readonly IMapper _mapper;
 
-        public AddGameFromSteamStoreUseCase(IMediator mediator, IUnitOfWork unitOfWork, INotificationService notificationService, ISteamUserStats steamApi, IMapper mapper)
+        public AddGameFromSteamStoreUseCase(
+            IMediator mediator, 
+            IUnitOfWork unitOfWork, 
+            INotificationService notificationService, 
+            ISteamWebApiClient steamApi, 
+            //IStoreApiWebClient storeApi,
+            IStoreApiClient storeApiClient,
+            IMapper mapper)
             : base(mediator, unitOfWork, notificationService)
         {
+            _storeApiClient = storeApiClient;
             _steamApi = steamApi;
+            //_storeApi = storeApi;
             _mapper = mapper;
         }
 
@@ -38,6 +50,7 @@ namespace MyGuides.Application.UseCases.Games.AddGame
                 request.StoreId = AppIdConverter.GetAppId(request.StoreId);
 
                 var result = await _steamApi.GetSchemaForGameAsync("AF458C11CC9AAF3E010199B1E61849DE", request.StoreId);
+                var teste = await _storeApiClient.GetAppDetailsFromStore("254700");
 
                 if (result is null)
                 {
