@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  myguides.api:
+    image: ${DOCKER_REGISTRY-}myguidesapi
+    build:
+      context: .
+      dockerfile: MyGuides.Api/Dockerfile
