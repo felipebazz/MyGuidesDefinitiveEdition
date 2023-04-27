@@ -29,7 +29,7 @@ namespace MyGuides.Domain.Entities.Games.Commands.UpdateImages
 
             if (game is null)
             {
-                _notificationService.AddNotification("cadastrar");
+                _notificationService.AddNotification(DomainValidationMessages.UpdateImagesCommandHandler_Game_Null);
                 return default;
             }
 
@@ -38,7 +38,7 @@ namespace MyGuides.Domain.Entities.Games.Commands.UpdateImages
 
             if (!game.Validate())
             {
-                _notificationService.AddNotification("cadastrar");
+                _notificationService.AddNotification(string.Format(DomainValidationMessages.UpdateImagesCommandHandler_Game_Invalid, game.ValidationResult.Errors.Count));
                 return default;
             }
 

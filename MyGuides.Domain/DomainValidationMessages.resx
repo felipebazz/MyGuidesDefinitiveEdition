@@ -117,16 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AddGameFromSteamStoreUseCase_Request_Empty" xml:space="preserve">
-    <value>O id do jogo não foi informado.</value>
+  <data name="AddGameCommandHandler_Game_Exists" xml:space="preserve">
+    <value>O jogo informado já foi importado previamente.</value>
   </data>
-  <data name="AddGameFromSteamStoreUseCase_Result_Empty" xml:space="preserve">
-    <value>O jogo não possui conquistas.</value>
+  <data name="AddGameCommandHandler_Game_Invalid" xml:space="preserve">
+    <value>Ocorreram {0} erro(s) de validação.</value>
   </data>
-  <data name="UpdateGameImagesUseCase_Request_Empty" xml:space="preserve">
-    <value>O id do jogo não foi informado.</value>
+  <data name="GetAchievementsQueryHandler_Achievements_Null" xml:space="preserve">
+    <value>Não foram encontradas conquistas para os parâmetros informados.</value>
   </data>
-  <data name="UpdateGameImagesUseCase_Result_Empty" xml:space="preserve">
+  <data name="GetAchievementsQueryHandler_Request_Null" xml:space="preserve">
+    <value>Os parâmetros necessários para obter as conquistas não foram informados.</value>
+  </data>
+  <data name="UpdateImagesCommandHandler_Game_Invalid" xml:space="preserve">
+    <value>Ocorreram {0} erro(s) de validação.</value>
+  </data>
+  <data name="UpdateImagesCommandHandler_Game_Null" xml:space="preserve">
     <value>Não foi possível recuperar as informações do jogo informado.</value>
   </data>
 </root>

@@ -1,15 +1,20 @@
 ﻿using MediatR;
 using MyGuides.Domain.Entities.Difficulties.Repository;
 using MyGuides.Domain.Entities.Difficulties.Results;
+using MyGuides.Notifications.Context;
 
 namespace MyGuides.Domain.Entities.Difficulties.Queries
 {
     public class GetDifficultiesQueryHandler : IRequestHandler<GetDifficultiesQuery, IEnumerable<DifficultyResult>>
     {
+        private readonly INotificationService _notificationService;
         private readonly IDifficultyRepository _difficultyRepository;
 
-        public GetDifficultiesQueryHandler(IDifficultyRepository difficultyRepository)
+        public GetDifficultiesQueryHandler(
+            INotificationService notificationService,
+            IDifficultyRepository difficultyRepository) 
         {
+            _notificationService = notificationService;
             _difficultyRepository = difficultyRepository;
         }
 
