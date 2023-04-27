@@ -99,6 +99,9 @@ namespace Steam.Api.Clients.StoreApi.Responses
         [JsonProperty("background")]
         public string Background { get; set; }
 
+        [JsonProperty("background_raw")]
+        public string BackgroundRaw { get; set; }
+
         [JsonProperty("controller_support", NullValueHandling = NullValueHandling.Ignore)]
         [JsonConverter(typeof(ControllerSupportJsonConverter))]
         public ControllerSupportEnum? ControllerSupport { get; set; }

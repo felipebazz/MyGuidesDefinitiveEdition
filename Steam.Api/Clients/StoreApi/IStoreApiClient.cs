@@ -2,7 +2,7 @@
 
 namespace Steam.Api.Clients.StoreApi
 {
-    public interface IStoreApiClient
+    public interface ISteamStoreApiWebClient
     {
         Task<SteamApp> GetAppDetailsFromStore(string appId);
     }

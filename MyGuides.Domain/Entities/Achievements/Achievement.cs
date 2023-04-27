@@ -45,10 +45,7 @@ namespace MyGuides.Domain.Entities.Achievements
             GameId = game.Id;
         }
 
-        public void SetOrder(long order)
-        {
-            Order = order;
-        }
+        public void SetOrder(long order) => Order = order;
 
         public void SetSection(Section section)
         {

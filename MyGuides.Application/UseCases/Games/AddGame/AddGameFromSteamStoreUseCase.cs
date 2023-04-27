@@ -1,9 +1,8 @@
 ﻿using AutoMapper;
 using MediatR;
 using MyGuides.Application.Abstractions;
-using MyGuides.Domain.Entities.Achievements;
-using MyGuides.Domain.Entities.Games;
-using MyGuides.Domain.Entities.Games.Commands;
+using MyGuides.Application.UseCases.Games.UpdateImages;
+using MyGuides.Domain.Entities.Games.Commands.AddGame;
 using MyGuides.Domain.Entities.Games.Requests;
 using MyGuides.Domain.Entities.Games.Results;
 using MyGuides.Infra.Data.Contexts.Database;
@@ -11,27 +10,29 @@ using MyGuides.Notifications.Context;
 using MyGuides.Utils;
 using Steam.Api.Clients.StoreApi;
 using Steam.Api.Clients.WebApi;
+using Achievement = MyGuides.Domain.Entities.Achievements.Achievement;
+using Game = MyGuides.Domain.Entities.Games.Game;
 
 namespace MyGuides.Application.UseCases.Games.AddGame
 {
     public class AddGameFromSteamStoreUseCase : TransactionalUseCase<AddGameRequest, GameResult>, IAddGameFromSteamStoreUseCase
     {
-        private readonly ISteamWebApiClient _steamApi;
-        private readonly IStoreApiClient _storeApiClient;
         private readonly IMapper _mapper;
+        private readonly ISteamWebApiClient _steamApi;
+        private readonly ISteamStoreApiWebClient _steamStoreApi;
 
         public AddGameFromSteamStoreUseCase(
-            IMediator mediator, 
-            IUnitOfWork unitOfWork, 
-            INotificationService notificationService, 
+            IMapper mapper,
+            IMediator mediator,
+            IUnitOfWork unitOfWork,
             ISteamWebApiClient steamApi,
-            IStoreApiClient storeApiClient,
-            IMapper mapper)
+            ISteamStoreApiWebClient steamStoreApi,
+            INotificationService notificationService)
             : base(mediator, unitOfWork, notificationService)
         {
-            _storeApiClient = storeApiClient;
-            _steamApi = steamApi;
             _mapper = mapper;
+            _steamApi = steamApi;
+            _steamStoreApi = steamStoreApi;
         }
 
         protected override async Task<GameResult> OnExecuteAsync(AddGameRequest request, CancellationToken cancellationToken)
@@ -47,6 +48,7 @@ namespace MyGuides.Application.UseCases.Games.AddGame
                 request.StoreId = AppIdConverter.GetAppId(request.StoreId);
 
                 var result = await _steamApi.GetSchemaForGameAsync("AF458C11CC9AAF3E010199B1E61849DE", request.StoreId);
+                var storeResult = await _steamStoreApi.GetAppDetailsFromStore(request.StoreId);
 
                 if (result is null)
                 {
@@ -56,23 +58,14 @@ namespace MyGuides.Application.UseCases.Games.AddGame
 
                 result.Game.AppId = request.StoreId;
 
-                var game = _mapper.Map<Game>(result.Game);
 
-                if (game is null)
-                {
-                    _notificationService.AddNotification("cadastrar");
-                    return default;
-                }
-
-                var achievements = _mapper.Map<List<Achievement>>(result.Game.AvailableGameStats.Achievements);
-
-                if (achievements is null || achievements.Count == 0)
-                {
-                    _notificationService.AddNotification("cadastrar");
-                    return default;
-                }
-
-                var command = new AddGameCommand(game.Name, game.Version, game.AppId, achievements);
+                var command = new AddGameCommand(
+                    result.Game.GameName,
+                    result.Game.GameVersion, 
+                    result.Game.AppId, 
+                    result.Game.AvailableGameStats.Achievements, 
+                    storeResult.HeaderImage, 
+                    storeResult.BackgroundRaw);
 
                 return await _mediator.Send(command, cancellationToken);
             }

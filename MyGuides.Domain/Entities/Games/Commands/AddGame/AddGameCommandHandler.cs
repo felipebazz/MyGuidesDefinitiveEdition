@@ -1,9 +1,10 @@
 ﻿using AutoMapper;
 using MediatR;
+using MyGuides.Domain.Entities.Achievements;
 using MyGuides.Domain.Entities.Games.Repository;
 using MyGuides.Domain.Entities.Games.Results;
 
-namespace MyGuides.Domain.Entities.Games.Commands
+namespace MyGuides.Domain.Entities.Games.Commands.AddGame
 {
     public class AddGameCommandHandler : IRequestHandler<AddGameCommand, GameResult>
     {
@@ -19,7 +20,7 @@ namespace MyGuides.Domain.Entities.Games.Commands
         public async Task<GameResult> Handle(AddGameCommand request, CancellationToken cancellationToken)
         {
             //verificar se já existe no banco via appId
-            if (_gameRepository.Any(g => request.AppId.Equals(g.AppId)))
+            if (_gameRepository.Any(g => request.AppId.Equals(g.AppId, StringComparison.InvariantCultureIgnoreCase)))
             {
                 //Add notification
             }
@@ -28,21 +29,17 @@ namespace MyGuides.Domain.Entities.Games.Commands
                 Guid.NewGuid(),
                 request.Name,
                 request.Version,
-                request.AppId);
+                request.AppId,
+                request.Image,
+                request.BackgroundImage);
 
-            game.AddAchievement(request.Achievements);
+            game.AddAchievement(_mapper.Map<List<Achievement>>(request.Achievements));
 
             game.Validate();
 
             if (!game.Valid)
             {
                 //add notification
-            }
-
-            foreach (var achievement in game.Achievements)
-            {
-                achievement.SetGame(game);
-                achievement.Validate();
             }
 
             await _gameRepository.AddAsync(game, cancellationToken);

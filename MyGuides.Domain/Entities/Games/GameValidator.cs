@@ -22,12 +22,12 @@ namespace MyGuides.Domain.Entities.Games
                 .NotEmpty()
                 .WithMessage("cadastrar");
 
-            //RuleFor(x => x.Achievements)
-            //    .SetInheritanceValidator(v =>
-            //    {
-            //        v.Add(new AchievementValidator());
-            //    })
-            //    .When(x => x.Achievements is not null);
+            RuleFor(x => x.Achievements)
+                .ForEach(x => x.SetInheritanceValidator(v =>
+                {
+                    v.Add(new AchievementValidator());
+                }))
+                .When(x => x.Achievements is not null);
         }
     }
 }

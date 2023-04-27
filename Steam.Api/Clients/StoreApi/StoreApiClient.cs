@@ -3,7 +3,7 @@ using Steam.Api.Clients.StoreApi.Responses;
 
 namespace Steam.Api.Clients.StoreApi
 {
-    public class StoreApiClient : IStoreApiClient
+    public class StoreApiClient : ISteamStoreApiWebClient
     {
         private readonly IStoreApiWebClient _storeApi;
         public StoreApiClient(IStoreApiWebClient storeApi)

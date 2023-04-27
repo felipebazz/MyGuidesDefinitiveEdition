@@ -226,8 +226,6 @@ namespace MyGuides.Infra.Data.Migrations
             modelBuilder.Entity("MyGuides.Domain.Entities.BannerTypes.Types.Divisor", b =>
                 {
                     b.HasBaseType("MyGuides.Domain.Entities.BannerTypes.BannerType");
-
-                    b.HasDiscriminator().HasValue(2);
                 });
 
             modelBuilder.Entity("MyGuides.Domain.Entities.BannerTypes.Types.Header", b =>

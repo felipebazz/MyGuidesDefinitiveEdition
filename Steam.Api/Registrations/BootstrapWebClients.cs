@@ -27,7 +27,7 @@ namespace Steam.Api.Registrations
 
         public static IServiceCollection RegisterStoreService(this IServiceCollection service)
         {
-            service.AddScoped<IStoreApiClient, StoreApiClient>();
+            service.AddScoped<ISteamStoreApiWebClient, StoreApiClient>();
 
             return service;
         }
