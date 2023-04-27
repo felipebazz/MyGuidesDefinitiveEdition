@@ -25,10 +25,9 @@ namespace MyGuides.Application.UseCases.Games.UpdateImages
 
         protected override async Task<GameResult> OnExecuteAsync(UpdateImagesRequest request, CancellationToken cancellationToken)
         {
-            //game id deve vir via path
             if (request.StoreId is null)
             {
-                _notificationService.AddNotification("cadastrar");
+                _notificationService.AddNotification(ApplicationValidationMessages.UpdateGameImagesUseCase_Request_Empty);
                 return default;
             }
 
@@ -36,7 +35,7 @@ namespace MyGuides.Application.UseCases.Games.UpdateImages
 
             if (result is null)
             {
-                _notificationService.AddNotification("cadastrar");
+                _notificationService.AddNotification(ApplicationValidationMessages.UpdateGameImagesUseCase_Result_Empty);
                 return default;
             }
 

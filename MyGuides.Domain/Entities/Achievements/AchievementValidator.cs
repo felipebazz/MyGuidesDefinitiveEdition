@@ -20,7 +20,7 @@ namespace MyGuides.Domain.Entities.Achievements
                 .WithMessage("displayname");
 
             RuleFor(x => x.Description)
-                .NotEmpty()
+                .NotNull()
                 .WithMessage("Description")
                 .MaximumLength(FieldRules.TextFieldMaxLength)
                 .WithMessage("Description");

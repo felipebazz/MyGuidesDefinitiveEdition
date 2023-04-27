@@ -45,7 +45,7 @@ namespace MyGuides.Application.UseCases.Games.AddGame
             {
                 if (request.StoreId is null)
                 {
-                    _notificationService.AddNotification("cadastrar");
+                    _notificationService.AddNotification(ApplicationValidationMessages.AddGameFromSteamStoreUseCase_Request_Empty);
                     return default;
                 }
 
@@ -54,9 +54,9 @@ namespace MyGuides.Application.UseCases.Games.AddGame
                 var result = await _steamApi.GetSchemaForGameAsync(_apiKey, request.StoreId);
                 var storeResult = await _steamStoreApi.GetAppDetailsFromStore(request.StoreId);
 
-                if (result is null)
+                if (result?.Game is null || result?.Game?.AvailableGameStats is null)
                 {
-                    _notificationService.AddNotification("cadastrar");
+                    _notificationService.AddNotification(ApplicationValidationMessages.AddGameFromSteamStoreUseCase_Result_Empty);
                     return default;
                 }
 
