@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MyGuides.Domain\MyGuides.Domain.csproj" />
+    <ProjectReference Include="..\MyGuides.Infra.Data\MyGuides.Data.csproj" />
     <ProjectReference Include="..\MyGuides.Notifications\MyGuides.Notifications.csproj" />
     <ProjectReference Include="..\MyGuides.Utils\MyGuides.Utils.csproj" />
     <ProjectReference Include="..\Steam.Api\Steam.Api.csproj" />

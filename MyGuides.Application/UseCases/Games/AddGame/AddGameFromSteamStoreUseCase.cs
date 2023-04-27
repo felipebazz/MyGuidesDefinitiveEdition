@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
+using Microsoft.Extensions.Configuration;
 using MyGuides.Application.Abstractions;
-using MyGuides.Application.UseCases.Games.UpdateImages;
 using MyGuides.Domain.Entities.Games.Commands.AddGame;
 using MyGuides.Domain.Entities.Games.Requests;
 using MyGuides.Domain.Entities.Games.Results;
@@ -10,15 +10,15 @@ using MyGuides.Notifications.Context;
 using MyGuides.Utils;
 using Steam.Api.Clients.StoreApi;
 using Steam.Api.Clients.WebApi;
-using Achievement = MyGuides.Domain.Entities.Achievements.Achievement;
-using Game = MyGuides.Domain.Entities.Games.Game;
 
 namespace MyGuides.Application.UseCases.Games.AddGame
 {
     public class AddGameFromSteamStoreUseCase : TransactionalUseCase<AddGameRequest, GameResult>, IAddGameFromSteamStoreUseCase
     {
+        private readonly string _apiKey;
         private readonly IMapper _mapper;
         private readonly ISteamWebApiClient _steamApi;
+        private readonly IConfiguration _configuration;
         private readonly ISteamStoreApiWebClient _steamStoreApi;
 
         public AddGameFromSteamStoreUseCase(
@@ -26,6 +26,7 @@ namespace MyGuides.Application.UseCases.Games.AddGame
             IMediator mediator,
             IUnitOfWork unitOfWork,
             ISteamWebApiClient steamApi,
+            IConfiguration configuration,
             ISteamStoreApiWebClient steamStoreApi,
             INotificationService notificationService)
             : base(mediator, unitOfWork, notificationService)
@@ -33,6 +34,9 @@ namespace MyGuides.Application.UseCases.Games.AddGame
             _mapper = mapper;
             _steamApi = steamApi;
             _steamStoreApi = steamStoreApi;
+            _configuration = configuration;
+
+            _apiKey = _configuration.GetSection(nameof(Settings)).Get<Settings>().ApiKey;
         }
 
         protected override async Task<GameResult> OnExecuteAsync(AddGameRequest request, CancellationToken cancellationToken)
@@ -47,7 +51,7 @@ namespace MyGuides.Application.UseCases.Games.AddGame
 
                 request.StoreId = AppIdConverter.GetAppId(request.StoreId);
 
-                var result = await _steamApi.GetSchemaForGameAsync("AF458C11CC9AAF3E010199B1E61849DE", request.StoreId);
+                var result = await _steamApi.GetSchemaForGameAsync(_apiKey, request.StoreId);
                 var storeResult = await _steamStoreApi.GetAppDetailsFromStore(request.StoreId);
 
                 if (result is null)

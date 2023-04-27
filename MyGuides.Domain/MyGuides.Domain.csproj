@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MyGuides.Notifications\MyGuides.Notifications.csproj" />
     <ProjectReference Include="..\Steam.Api\Steam.Api.csproj" />
   </ItemGroup>
 
