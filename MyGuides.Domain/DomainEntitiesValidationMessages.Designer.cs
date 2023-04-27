@@ -59,5 +59,95 @@ namespace MyGuides.Domain {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to É necessário informar se o tipo do banner está oculto..
+        /// </summary>
+        internal static string BannerTypeValidator_Hidden_Required {
+            get {
+                return ResourceManager.GetString("BannerTypeValidator_Hidden_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O tamanho máximo do campo nome do tipo de banner é de {0} carácteres..
+        /// </summary>
+        internal static string BannerTypeValidator_Name_MaxLength {
+            get {
+                return ResourceManager.GetString("BannerTypeValidator_Name_MaxLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O campo nome do tipo do banner é obrigatório..
+        /// </summary>
+        internal static string BannerTypeValidator_Name_Required {
+            get {
+                return ResourceManager.GetString("BannerTypeValidator_Name_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O campo id do tipo de banner é obrigatório..
+        /// </summary>
+        internal static string BannerValidator_BannerTypeId_Required {
+            get {
+                return ResourceManager.GetString("BannerValidator_BannerTypeId_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O tamanho máximo do campo imagem é de {0} carácteres..
+        /// </summary>
+        internal static string BannerValidator_ImageId_MaxLength {
+            get {
+                return ResourceManager.GetString("BannerValidator_ImageId_MaxLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O campo imagem do banner é obrigatório..
+        /// </summary>
+        internal static string BannerValidator_ImageId_Required {
+            get {
+                return ResourceManager.GetString("BannerValidator_ImageId_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O tamanho máximo do campo nome é de {0} carácteres..
+        /// </summary>
+        internal static string BannerValidator_Name_MaxLength {
+            get {
+                return ResourceManager.GetString("BannerValidator_Name_MaxLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O campo nome do banner é obrigatório..
+        /// </summary>
+        internal static string BannerValidator_Name_Required {
+            get {
+                return ResourceManager.GetString("BannerValidator_Name_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O tamanho máximo do campo url é de {0} carácteres..
+        /// </summary>
+        internal static string BannerValidator_Url_MaxLength {
+            get {
+                return ResourceManager.GetString("BannerValidator_Url_MaxLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O campo url do banner é obrigatório..
+        /// </summary>
+        internal static string BannerValidator_Url_Required {
+            get {
+                return ResourceManager.GetString("BannerValidator_Url_Required", resourceCulture);
+            }
+        }
     }
 }
