@@ -31,7 +31,7 @@ namespace MyGuides.Api.Controllers
             return Ok(await useCase.ExecuteAsync(cancellationToken));
         }
 
-        [HttpPut]
+        [HttpPut("update-image")]
         [ProducesResponseType(typeof(RequestResult<GameResult>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(RequestResult), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(RequestResult), StatusCodes.Status500InternalServerError)]

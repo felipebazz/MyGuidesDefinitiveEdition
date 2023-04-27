@@ -26,7 +26,7 @@ namespace MyGuides.Domain.Entities.Achievements
                 .WithMessage("Description");
 
             RuleFor(x => x.Hidden)
-                .NotEmpty()
+                .NotNull()
                 .WithMessage("Hidden");
 
             RuleFor(x => x.IconGray)

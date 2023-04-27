@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using MyGuides.Domain.Entities.Achievements.Results;
+using Steam.Api.Clients.StoreApi.Responses;
+using Steam.Api.Responses;
 
 namespace MyGuides.Domain.Entities.Achievements.Converters
 {
@@ -7,32 +9,47 @@ namespace MyGuides.Domain.Entities.Achievements.Converters
     {
         public List<AchievementResult> Convert(List<Achievement> source, List<AchievementResult> destination, ResolutionContext context)
         {
-            destination = new List<AchievementResult>();
+            //destination = new List<AchievementResult>();
 
-            foreach (var achievement in source)
+            return source.Select(itens => new AchievementResult
             {
-                var chievo = new AchievementResult()
+                Name = itens.Name,
+                Description = itens.Description,
+                Hidden = itens.Hidden,
+                Icon = itens.Icon,
+                Difficulty = itens.Difficulty == null ? null
+                : new Difficulty
                 {
-                    Name = achievement.Name,
-                    Description = achievement.Description,
-                    Hidden = achievement.Hidden,
-                    Icon = achievement.Icon
-                };
+                    Name = itens.Difficulty.Name,
+                    Id = itens.Difficulty.Id,
+                    Image = itens.Difficulty.Image
+                },
+            }).ToList();
 
-                if (achievement.Difficulty is not null)
-                {
-                    chievo.Difficulty = new Difficulty()
-                    {
-                        Name = achievement.Difficulty.Name,
-                        Id = achievement.Difficulty.Id,
-                        Image = achievement.Difficulty.Image
-                    };
-                }
+            //foreach (var achievement in source)
+            //{
+            //    var chievo = new AchievementResult()
+            //    {
+            //        Name = achievement.Name,
+            //        Description = achievement.Description,
+            //        Hidden = achievement.Hidden,
+            //        Icon = achievement.Icon
+            //    };
 
-                destination.Add(chievo);
-            }
+            //    if (achievement.Difficulty is not null)
+            //    {
+            //        chievo.Difficulty = new Difficulty()
+            //        {
+            //            Name = achievement.Difficulty.Name,
+            //            Id = achievement.Difficulty.Id,
+            //            Image = achievement.Difficulty.Image
+            //        };
+            //    }
 
-            return destination;
+            //    destination.Add(chievo);
+            //}
+
+            //return destination;
         }
     }
 }

@@ -20,7 +20,7 @@ namespace MyGuides.Domain.Entities.Games.Commands.AddGame
         public async Task<GameResult> Handle(AddGameCommand request, CancellationToken cancellationToken)
         {
             //verificar se já existe no banco via appId
-            if (_gameRepository.Any(g => request.AppId.Equals(g.AppId, StringComparison.InvariantCultureIgnoreCase)))
+            if (_gameRepository.Any(g => request.AppId.Equals(g.AppId)))
             {
                 //Add notification
             }
@@ -33,7 +33,8 @@ namespace MyGuides.Domain.Entities.Games.Commands.AddGame
                 request.Image,
                 request.BackgroundImage);
 
-            game.AddAchievement(_mapper.Map<List<Achievement>>(request.Achievements));
+            var teste = _mapper.Map<List<Achievement>>(new Tuple<IEnumerable<Steam.Api.Responses.Achievement>, Guid>(request.Achievements, game.Id));
+            game.AddAchievement(teste);
 
             game.Validate();
 

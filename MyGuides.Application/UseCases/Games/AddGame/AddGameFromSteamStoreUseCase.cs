@@ -58,9 +58,8 @@ namespace MyGuides.Application.UseCases.Games.AddGame
 
                 result.Game.AppId = request.StoreId;
 
-
                 var command = new AddGameCommand(
-                    result.Game.GameName,
+                    storeResult.Name ?? result.Game.GameName,
                     result.Game.GameVersion, 
                     result.Game.AppId, 
                     result.Game.AvailableGameStats.Achievements, 

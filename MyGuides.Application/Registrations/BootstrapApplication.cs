@@ -8,7 +8,7 @@ using MyGuides.Application.UseCases.BannerTypes.GetBannerTypes;
 using MyGuides.Application.UseCases.Games.AddGame;
 using MyGuides.Application.UseCases.Games.GetGames;
 using MyGuides.Application.UseCases.Games.UpdateImages;
-using MyGuides.Domain.Entities.Profiles;
+using MyGuides.Domain.Profiles;
 using Steam.Api.Clients.StoreApi;
 using Steam.Api.Clients.WebApi;
 using Steam.Api.Registrations;

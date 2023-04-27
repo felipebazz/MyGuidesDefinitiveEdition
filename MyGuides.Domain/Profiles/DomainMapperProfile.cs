@@ -6,7 +6,7 @@ using MyGuides.Domain.Entities.Games;
 using MyGuides.Domain.Entities.Games.Converters;
 using MyGuides.Domain.Entities.Games.Results;
 
-namespace MyGuides.Domain.Entities.Profiles
+namespace MyGuides.Domain.Profiles
 {
     public class DomainMapperProfile : Profile
     {
@@ -20,6 +20,9 @@ namespace MyGuides.Domain.Entities.Profiles
 
             CreateMap<List<Achievement>, List<AchievementResult>>()
                 .ConvertUsing(new ToAchievementResultConverter());
+
+            CreateMap<Tuple<IEnumerable<Steam.Api.Responses.Achievement>, Guid>, List<Achievement>>()
+                .ConvertUsing(new StoreToAchievementConverter());
         }
     }
 }
