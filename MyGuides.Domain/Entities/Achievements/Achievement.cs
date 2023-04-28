@@ -9,7 +9,6 @@ namespace MyGuides.Domain.Entities.Achievements
     {
         public string Name { get; private set; }
         public string Description { get; private set; }
-        public string DisplayName { get; private set; }
         public bool Hidden { get; private set; }
         public string Icon { get; private set; }
         public string IconGray { get; private set; }
@@ -21,12 +20,11 @@ namespace MyGuides.Domain.Entities.Achievements
         public Guid? DifficultyId { get; private set; }
         public Difficulty? Difficulty { get; private set; }
 
-        public Achievement(Guid id, string name, string description, string displayName, bool hidden, string icon, string iconGray, Guid gameId = default)
+        public Achievement(Guid id, string name, string description, bool hidden, string icon, string iconGray, Guid gameId = default)
             : base(id)
         {
             Name = name;
             Description = description;
-            DisplayName = displayName;
             Hidden = hidden;
             Icon = icon;
             IconGray = iconGray;

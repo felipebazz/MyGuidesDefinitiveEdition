@@ -9,7 +9,7 @@ namespace MyGuides.Domain.Entities.Achievements.Converters
         {
             return source.Select(itens => new AchievementResult
             {
-                Name = itens.DisplayName,
+                Name = itens.Name,
                 Description = itens.Description,
                 Hidden = itens.Hidden,
                 Icon = itens.Icon,

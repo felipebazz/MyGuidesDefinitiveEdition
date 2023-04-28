@@ -9,9 +9,8 @@ namespace MyGuides.Domain.Entities.Achievements.Converters
             return source.Item1.Select(achievement => new Achievement
             (
                 Guid.NewGuid(),
-                achievement.Name,
-                achievement.Hidden == 0 ? achievement.Description : "",
                 achievement.DisplayName,
+                achievement.Hidden == 0 ? achievement.Description : "",
                 achievement.Hidden == 1 ? true : false,
                 achievement.Icon,
                 achievement.Icongray,
