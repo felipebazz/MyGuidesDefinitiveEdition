@@ -11,6 +11,10 @@ namespace MyGuides.Application.Abstractions
     {
         protected readonly IUnitOfWork _unitOfWork;
 
+        public TransactionalUseCase(IMediator mediator, INotificationService notificationService) : base(mediator, notificationService)
+        {
+        }
+
         protected TransactionalUseCase(IMediator mediator, IUnitOfWork unitOfWork, INotificationService notificationService)
             : base(mediator, notificationService)
         {

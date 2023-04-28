@@ -9,41 +9,35 @@ namespace MyGuides.Domain.Entities.Achievements
         {
             RuleFor(x => x.Name)
                 .NotEmpty()
-                .WithMessage("name")
+                .WithMessage(DomainEntitiesValidationMessages.AchievementValidator_Name_Required)
                 .MaximumLength(FieldRules.NameMaxLength)
-                .WithMessage("name");
-
-            RuleFor(x => x.DisplayName)
-                .NotEmpty()
-                .WithMessage("displayname")
-                .MaximumLength(FieldRules.NameMaxLength)
-                .WithMessage("displayname");
+                .WithMessage(string.Format(DomainEntitiesValidationMessages.AchievementValidator_Name_MaxLength, FieldRules.NameMaxLength));
 
             RuleFor(x => x.Description)
-                .NotEmpty()
-                .WithMessage("Description")
+                .NotNull()
+                .WithMessage(DomainEntitiesValidationMessages.AchievementValidator_Description_Required)
                 .MaximumLength(FieldRules.TextFieldMaxLength)
-                .WithMessage("Description");
+                .WithMessage(string.Format(DomainEntitiesValidationMessages.AchievementValidator_Description_MaxLength, FieldRules.TextFieldMaxLength));
 
             RuleFor(x => x.Hidden)
-                .NotEmpty()
-                .WithMessage("Hidden");
+                .NotNull()
+                .WithMessage(DomainEntitiesValidationMessages.AchievementValidator_Hidden_Required);
 
             RuleFor(x => x.IconGray)
                 .NotEmpty()
-                .WithMessage("IconGray")
+                .WithMessage(DomainEntitiesValidationMessages.AchievementValidator_IconGray_Required)
                 .MaximumLength(FieldRules.TextFieldMaxLength)
-                .WithMessage("IconGray");
+                .WithMessage(string.Format(DomainEntitiesValidationMessages.AchievementValidator_IconGray_MaxLength, FieldRules.TextFieldMaxLength));
 
             RuleFor(x => x.Icon)
                 .NotEmpty()
-                .WithMessage("Icon")
+                .WithMessage(DomainEntitiesValidationMessages.AchievementValidator_Icon_Required)
                 .MaximumLength(FieldRules.TextFieldMaxLength)
-                .WithMessage("Icon");
+                .WithMessage(string.Format(DomainEntitiesValidationMessages.AchievementValidator_Icon_MaxLength, FieldRules.TextFieldMaxLength));
 
             RuleFor(x => x.GameId)
                 .NotEmpty()
-                .WithMessage("GameId");
+                .WithMessage(DomainEntitiesValidationMessages.AchievementValidator_GameId_Required);
         }
     }
 }

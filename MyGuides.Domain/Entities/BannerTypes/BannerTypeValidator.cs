@@ -10,13 +10,13 @@ namespace MyGuides.Domain.Entities.BannerTypes
         {
             RuleFor(x => x.Name)
                 .NotEmpty()
-                .WithMessage("cadastrar")
+                .WithMessage(DomainEntitiesValidationMessages.BannerTypeValidator_Name_Required)
                 .MaximumLength(FieldRules.NameMaxLength)
-                .WithMessage("cadastrar");
+                .WithMessage(string.Format(DomainEntitiesValidationMessages.BannerTypeValidator_Name_MaxLength, FieldRules.NameMaxLength));
 
             RuleFor(x => x.Hidden)
                 .NotEmpty()
-                .WithMessage("cadastrar");
+                .WithMessage(DomainEntitiesValidationMessages.BannerTypeValidator_Hidden_Required);
         }
     }
 }

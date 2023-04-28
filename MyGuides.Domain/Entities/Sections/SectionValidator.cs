@@ -9,17 +9,17 @@ namespace MyGuides.Domain.Entities.Sections
         {
             RuleFor(x => x.Name)
                 .NotEmpty()
-                .WithMessage("cadastrar")
+                .WithMessage(DomainEntitiesValidationMessages.SectionValidator_Name_Required)
                 .MaximumLength(FieldRules.NameMaxLength)
-                .WithMessage("cadastrar");
+                .WithMessage(string.Format(DomainEntitiesValidationMessages.SectionValidator_Name_MaxLength, FieldRules.NameMaxLength));
 
             RuleFor(x => x.Content)
                 .NotEmpty()
-                .WithMessage("cadastrar");
+                .WithMessage(DomainEntitiesValidationMessages.SectionValidator_Content_Required);
 
             RuleFor(x => x.IsIndividual)
                 .NotEmpty()
-                .WithMessage("cadastrar");
+                .WithMessage(DomainEntitiesValidationMessages.SectionValidator_IsIndividual_Required);
         }
     }
 }

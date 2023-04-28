@@ -8,5 +8,7 @@
         public int Achievements { get; set; }
         public string ImportDate { get; set; }
         public string UpdateDate { get; set; }
+        public string Image { get; set; }
+        public string BackgroundImage { get; set; }
     }
 }

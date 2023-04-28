@@ -33,6 +33,12 @@ namespace MyGuides.Infra.Data.Contexts.Configurations
 
             builder.Property(p => p.UpdateDate);
 
+            builder.Property(p => p.Image)
+                .HasMaxLength(FieldRules.PathFieldMaxLength);
+
+            builder.Property(p => p.BackgroundImage)
+                .HasMaxLength(FieldRules.PathFieldMaxLength);
+
             builder.HasMany(p => p.Achievements)
                 .WithOne(p => p.Game)
                 .HasForeignKey(p => p.GameId)

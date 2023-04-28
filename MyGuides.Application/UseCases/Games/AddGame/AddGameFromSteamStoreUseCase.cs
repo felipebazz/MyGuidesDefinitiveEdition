@@ -1,9 +1,8 @@
 ﻿using AutoMapper;
 using MediatR;
+using Microsoft.Extensions.Configuration;
 using MyGuides.Application.Abstractions;
-using MyGuides.Domain.Entities.Achievements;
-using MyGuides.Domain.Entities.Games;
-using MyGuides.Domain.Entities.Games.Commands;
+using MyGuides.Domain.Entities.Games.Commands.AddGame;
 using MyGuides.Domain.Entities.Games.Requests;
 using MyGuides.Domain.Entities.Games.Results;
 using MyGuides.Infra.Data.Contexts.Database;
@@ -16,25 +15,28 @@ namespace MyGuides.Application.UseCases.Games.AddGame
 {
     public class AddGameFromSteamStoreUseCase : TransactionalUseCase<AddGameRequest, GameResult>, IAddGameFromSteamStoreUseCase
     {
-        private readonly ISteamWebApiClient _steamApi;
-        private readonly IStoreApiWebClient _storeApi;
-        private readonly IStoreApiClient _storeApiClient;
+        private readonly string _apiKey;
         private readonly IMapper _mapper;
+        private readonly ISteamWebApiClient _steamApi;
+        private readonly IConfiguration _configuration;
+        private readonly ISteamStoreApiWebClient _steamStoreApi;
 
         public AddGameFromSteamStoreUseCase(
-            IMediator mediator, 
-            IUnitOfWork unitOfWork, 
-            INotificationService notificationService, 
-            ISteamWebApiClient steamApi, 
-            //IStoreApiWebClient storeApi,
-            IStoreApiClient storeApiClient,
-            IMapper mapper)
+            IMapper mapper,
+            IMediator mediator,
+            IUnitOfWork unitOfWork,
+            ISteamWebApiClient steamApi,
+            IConfiguration configuration,
+            ISteamStoreApiWebClient steamStoreApi,
+            INotificationService notificationService)
             : base(mediator, unitOfWork, notificationService)
         {
-            _storeApiClient = storeApiClient;
-            _steamApi = steamApi;
-            //_storeApi = storeApi;
             _mapper = mapper;
+            _steamApi = steamApi;
+            _steamStoreApi = steamStoreApi;
+            _configuration = configuration;
+
+            _apiKey = _configuration.GetSection(nameof(Settings)).Get<Settings>().ApiKey;
         }
 
         protected override async Task<GameResult> OnExecuteAsync(AddGameRequest request, CancellationToken cancellationToken)
@@ -43,41 +45,30 @@ namespace MyGuides.Application.UseCases.Games.AddGame
             {
                 if (request.StoreId is null)
                 {
-                    _notificationService.AddNotification("cadastrar");
+                    _notificationService.AddNotification(ApplicationValidationMessages.AddGameFromSteamStoreUseCase_Request_Empty);
                     return default;
                 }
 
                 request.StoreId = AppIdConverter.GetAppId(request.StoreId);
 
-                var result = await _steamApi.GetSchemaForGameAsync("AF458C11CC9AAF3E010199B1E61849DE", request.StoreId);
-                var teste = await _storeApiClient.GetAppDetailsFromStore("254700");
-                //verificar se já existe, se sim, verificar o número de achievements, se for maior, adicionar os novos achievements
+                var result = await _steamApi.GetSchemaForGameAsync(_apiKey, request.StoreId);
+                var storeResult = await _steamStoreApi.GetAppDetailsFromStore(request.StoreId);
 
-                if (result is null)
+                if (result?.Game is null || result?.Game?.AvailableGameStats is null)
                 {
-                    _notificationService.AddNotification("cadastrar");
+                    _notificationService.AddNotification(ApplicationValidationMessages.AddGameFromSteamStoreUseCase_Result_Empty);
                     return default;
                 }
 
                 result.Game.AppId = request.StoreId;
 
-                var game = _mapper.Map<Game>(result.Game);
-
-                if (game is null)
-                {
-                    _notificationService.AddNotification("cadastrar");
-                    return default;
-                }
-
-                var achievements = _mapper.Map<List<Achievement>>(result.Game.AvailableGameStats.Achievements);
-
-                if (achievements is null || achievements.Count == 0)
-                {
-                    _notificationService.AddNotification("cadastrar");
-                    return default;
-                }
-
-                var command = new AddGameCommand(game.Name, game.Version, game.AppId, achievements);
+                var command = new AddGameCommand(
+                    storeResult.Name ?? result.Game.GameName,
+                    result.Game.GameVersion, 
+                    result.Game.AppId, 
+                    result.Game.AvailableGameStats.Achievements, 
+                    storeResult.HeaderImage, 
+                    storeResult.BackgroundRaw);
 
                 return await _mediator.Send(command, cancellationToken);
             }

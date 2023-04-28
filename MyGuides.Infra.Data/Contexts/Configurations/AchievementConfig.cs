@@ -26,10 +26,6 @@ namespace MyGuides.Infra.Data.Contexts.Configurations
                 .IsRequired()
                 .HasMaxLength(FieldRules.TextFieldMaxLength);
 
-            builder.Property(p => p.DisplayName)
-                .IsRequired()
-                .HasMaxLength(FieldRules.NameMaxLength);
-
             builder.Property(p => p.Hidden)
                 .IsRequired();
 

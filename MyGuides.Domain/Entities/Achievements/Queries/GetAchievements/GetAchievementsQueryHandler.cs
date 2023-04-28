@@ -3,23 +3,29 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using MyGuides.Domain.Entities.Achievements.Repositories;
 using MyGuides.Domain.Entities.Achievements.Results;
+using MyGuides.Notifications.Context;
 
 namespace MyGuides.Domain.Entities.Achievements.Queries.GetAchievements
 {
     public class GetAchievementsQueryHandler : IRequestHandler<GetAchievementsQuery, IEnumerable<AchievementResult>>
     {
-        private readonly IAchievementRepository _achievementRepository;
         private readonly IMapper _mapper;
-        public GetAchievementsQueryHandler(IAchievementRepository achievementRepository, IMapper mapper)
+        private readonly INotificationService _notificationService;
+        private readonly IAchievementRepository _achievementRepository;
+        public GetAchievementsQueryHandler(
+            IMapper mapper,
+            INotificationService notificationService,
+            IAchievementRepository achievementRepository)
         {
-            _achievementRepository = achievementRepository;
             _mapper = mapper;
+            _notificationService = notificationService;
+            _achievementRepository = achievementRepository;
         }
         public async Task<IEnumerable<AchievementResult>> Handle(GetAchievementsQuery request, CancellationToken cancellationToken)
         {
             if (request is null)
             {
-                //cadastrar notificação
+                _notificationService.AddNotification(DomainValidationMessages.GetAchievementsQueryHandler_Request_Null);
                 return default;
             }
 
@@ -30,7 +36,7 @@ namespace MyGuides.Domain.Entities.Achievements.Queries.GetAchievements
 
             if (achievements is null)
             {
-                //cadastrar notificação
+                _notificationService.AddNotification(DomainValidationMessages.GetAchievementsQueryHandler_Achievements_Null);
                 return default;
             }
 

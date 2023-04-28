@@ -11,10 +11,6 @@ namespace MyGuides.Application.Profiles
         {
             CreateMap<Steam.Api.Responses.Game, Game>()
                 .ConvertUsing(new SteamGameConverter());
-
-
-            CreateMap<List<Steam.Api.Responses.Achievement>, List<Achievement>>()
-                .ConvertUsing(new SteamAchievementsConverter());
         }
     }
 }

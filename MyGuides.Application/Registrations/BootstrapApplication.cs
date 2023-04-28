@@ -7,7 +7,8 @@ using MyGuides.Application.UseCases.Achievements.GetAchievements;
 using MyGuides.Application.UseCases.BannerTypes.GetBannerTypes;
 using MyGuides.Application.UseCases.Games.AddGame;
 using MyGuides.Application.UseCases.Games.GetGames;
-using MyGuides.Domain.Entities.Profiles;
+using MyGuides.Application.UseCases.Games.UpdateImages;
+using MyGuides.Domain.Profiles;
 using Steam.Api.Clients.StoreApi;
 using Steam.Api.Clients.WebApi;
 using Steam.Api.Registrations;
@@ -25,6 +26,7 @@ namespace MyGuides.Application.Registrations
             service.AddScoped<IAddGameFromSteamStoreUseCase, AddGameFromSteamStoreUseCase>();
             service.AddScoped<IGetGamesUseCase, GetGamesUseCase>();
             service.AddScoped<IGetAchievementsUseCase, GetAchievementsUseCase>();
+            service.AddScoped<IUpdateGameImagesUseCase, UpdateGameImagesUseCase>();
 
             return service;
         }

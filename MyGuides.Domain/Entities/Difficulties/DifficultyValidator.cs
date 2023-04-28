@@ -9,19 +9,19 @@ namespace MyGuides.Domain.Entities.Difficulties
         {
             RuleFor(x => x.Name)
                 .NotEmpty()
-                .WithMessage("cadastrar")
+                .WithMessage(DomainEntitiesValidationMessages.DifficultyValidator_Name_Required)
                 .MaximumLength(FieldRules.NameMaxLength)
-                .WithMessage("cadastrar");
+                .WithMessage(string.Format(DomainEntitiesValidationMessages.DifficultyValidator_Name_MaxLength, FieldRules.NameMaxLength));
 
             RuleFor(x => x.Image)
                 .NotEmpty()
-                .WithMessage("cadastrar")
+                .WithMessage(DomainEntitiesValidationMessages.DifficultyValidator_Image_Required)
                 .MaximumLength(FieldRules.TextFieldMaxLength)
-                .WithMessage("cadastrar");
+                .WithMessage(string.Format(DomainEntitiesValidationMessages.DifficultyValidator_Image_MaxLength, FieldRules.TextFieldMaxLength));
 
             RuleFor(x => x.Order)
                 .NotEmpty()
-                .WithMessage("cadastrar");
+                .WithMessage(DomainEntitiesValidationMessages.DifficultyValidator_Order_Required);
         }
     }
 }

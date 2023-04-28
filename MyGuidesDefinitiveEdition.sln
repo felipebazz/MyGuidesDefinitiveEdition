@@ -5,7 +5,7 @@ VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F710EF8F-D536-4301-9B67-1E43AFF656BF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyGuides.Infra.Data", "MyGuides.Infra.Data\MyGuides.Infra.Data.csproj", "{251A267C-1D03-42B0-B579-F88436A1E63E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyGuides.Data", "MyGuides.Infra.Data\MyGuides.Data.csproj", "{251A267C-1D03-42B0-B579-F88436A1E63E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyGuides.Api", "MyGuides.Api\MyGuides.Api.csproj", "{7DECA206-97B5-406B-8BB9-385349CAEF15}"
 EndProject
@@ -21,7 +21,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sdk", "sdk", "{7C036563-801
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Steam.Api", "Steam.Api\Steam.Api.csproj", "{DA79E721-2A87-466A-825A-E8C9DEDAA15A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyGuides.Utils", "MyGuides.Utils\MyGuides.Utils.csproj", "{2D3C5F8F-6F37-4E50-A28A-473021A9783E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyGuides.Utils", "MyGuides.Utils\MyGuides.Utils.csproj", "{2D3C5F8F-6F37-4E50-A28A-473021A9783E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

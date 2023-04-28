@@ -11,24 +11,25 @@ namespace MyGuides.Domain.Entities.Banners
         {
             RuleFor(x => x.Name)
                 .NotEmpty()
-                .WithMessage("cadastrar")
-                .MaximumLength(FieldRules.TextFieldMaxLength);
+                .WithMessage(DomainEntitiesValidationMessages.BannerValidator_Name_Required)
+                .MaximumLength(FieldRules.NameMaxLength)
+                .WithMessage(string.Format(DomainEntitiesValidationMessages.BannerValidator_Name_MaxLength, FieldRules.NameMaxLength));
 
             RuleFor(x => x.ImageId)
                 .NotEmpty()
-                .WithMessage("cadastrar")
+                .WithMessage(DomainEntitiesValidationMessages.BannerValidator_ImageId_Required)
                 .MaximumLength(FieldRules.TextFieldMaxLength)
-                .WithMessage("cadastrar");
+                .WithMessage(string.Format(DomainEntitiesValidationMessages.BannerValidator_ImageId_MaxLength, FieldRules.TextFieldMaxLength));
 
             RuleFor(x => x.Url)
                 .NotEmpty()
-                .WithMessage("cadastrar")
+                .WithMessage(DomainEntitiesValidationMessages.BannerValidator_Url_Required)
                 .MaximumLength(FieldRules.TextFieldMaxLength)
-                .WithMessage("cadastrar");
+                .WithMessage(string.Format(DomainEntitiesValidationMessages.BannerValidator_Url_MaxLength, FieldRules.TextFieldMaxLength));
 
             RuleFor(x => x.BannerTypeId)
                 .NotEmpty()
-                .WithMessage("cadastrar");
+                .WithMessage(DomainEntitiesValidationMessages.BannerValidator_BannerTypeId_Required);
 
             RuleFor(x => x.BannerType)
                 .SetInheritanceValidator(v =>
