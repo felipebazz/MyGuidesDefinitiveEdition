@@ -10,17 +10,17 @@ namespace MyGuides.Domain.Entities.Games
         {
             RuleFor(x => x.Name)
                 .NotEmpty()
-                .WithMessage("cadastrar")
+                .WithMessage(DomainEntitiesValidationMessages.GameValidator_Name_Required)
                 .MaximumLength(FieldRules.NameMaxLength)
-                .WithMessage("cadastrar");
+                .WithMessage(string.Format(DomainEntitiesValidationMessages.GameValidator_Name_MaxLength, FieldRules.NameMaxLength));
 
             RuleFor(x => x.Version)
                 .NotEmpty()
-                .WithMessage("cadastrar");
+                .WithMessage(DomainEntitiesValidationMessages.GameValidator_Version_Required);
 
             RuleFor(x => x.AppId)
                 .NotEmpty()
-                .WithMessage("cadastrar");
+                .WithMessage(DomainEntitiesValidationMessages.GameValidator_AppId_Required);
 
             RuleFor(x => x.Achievements)
                 .ForEach(x => x.SetInheritanceValidator(v =>

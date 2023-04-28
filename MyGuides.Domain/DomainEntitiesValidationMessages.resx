@@ -117,6 +117,36 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AchievementValidator_Description_MaxLength" xml:space="preserve">
+    <value>O tamanho máximo do campo descrição é de {0} carácteres.</value>
+  </data>
+  <data name="AchievementValidator_Description_Required" xml:space="preserve">
+    <value>O campo descrição da conquista não pode estar nulo.</value>
+  </data>
+  <data name="AchievementValidator_GameId_Required" xml:space="preserve">
+    <value>É necessário informar a qual jogo a conquista pertence.</value>
+  </data>
+  <data name="AchievementValidator_Hidden_Required" xml:space="preserve">
+    <value>É necessário informar se a conquista está oculta.</value>
+  </data>
+  <data name="AchievementValidator_IconGray_MaxLength" xml:space="preserve">
+    <value>O tamanho máximo do campo imagem da conquista bloqueada é de {0} carácteres.</value>
+  </data>
+  <data name="AchievementValidator_IconGray_Required" xml:space="preserve">
+    <value>O campo imagem da conquista bloqueada é obrigatório.</value>
+  </data>
+  <data name="AchievementValidator_Icon_MaxLength" xml:space="preserve">
+    <value>O tamanho máximo do campo imagem da conquista é de {0} carácteres.</value>
+  </data>
+  <data name="AchievementValidator_Icon_Required" xml:space="preserve">
+    <value>O campo imagem da conquista é obrigatório.</value>
+  </data>
+  <data name="AchievementValidator_Name_MaxLength" xml:space="preserve">
+    <value>O tamanho máximo do cmapo nome da conquista é de {0} carácteres.</value>
+  </data>
+  <data name="AchievementValidator_Name_Required" xml:space="preserve">
+    <value>O campo nome da conquista é obrigatório.</value>
+  </data>
   <data name="BannerTypeValidator_Hidden_Required" xml:space="preserve">
     <value>É necessário informar se o tipo do banner está oculto.</value>
   </data>
@@ -146,5 +176,44 @@
   </data>
   <data name="BannerValidator_Url_Required" xml:space="preserve">
     <value>O campo url do banner é obrigatório.</value>
+  </data>
+  <data name="DifficultyValidator_Image_MaxLength" xml:space="preserve">
+    <value>O tamanho máximo do campo imagem da dificuldade é de {0} carácteres.</value>
+  </data>
+  <data name="DifficultyValidator_Image_Required" xml:space="preserve">
+    <value>O campo imagem da dificuldade é obrigatório.</value>
+  </data>
+  <data name="DifficultyValidator_Name_MaxLength" xml:space="preserve">
+    <value>O tamanho máximo do campo nome da dificuldade é de {0} carácteres.</value>
+  </data>
+  <data name="DifficultyValidator_Name_Required" xml:space="preserve">
+    <value>O campo nome da dificuldade é obrigatório.</value>
+  </data>
+  <data name="DifficultyValidator_Order_Required" xml:space="preserve">
+    <value>O campo ordem da dificuldade é obrigatório.</value>
+  </data>
+  <data name="GameValidator_AppId_Required" xml:space="preserve">
+    <value>O campo app id do jogo é obrigatório.</value>
+  </data>
+  <data name="GameValidator_Name_MaxLength" xml:space="preserve">
+    <value>O tamanho máximo do campo nome do jogo é de {0} carácteres.</value>
+  </data>
+  <data name="GameValidator_Name_Required" xml:space="preserve">
+    <value>O campo nome do jogo é obrigatório.</value>
+  </data>
+  <data name="GameValidator_Version_Required" xml:space="preserve">
+    <value>O campo versão do jogo é obrigatório.</value>
+  </data>
+  <data name="SectionValidator_Content_Required" xml:space="preserve">
+    <value>O campo conteúdo da seção é obrigatório.</value>
+  </data>
+  <data name="SectionValidator_IsIndividual_Required" xml:space="preserve">
+    <value>O campo individual é obrigatório.</value>
+  </data>
+  <data name="SectionValidator_Name_MaxLength" xml:space="preserve">
+    <value>O tamanho máximo do campo nome de seção é de {0} caráceteres.</value>
+  </data>
+  <data name="SectionValidator_Name_Required" xml:space="preserve">
+    <value>O campo nome da seção é obrigatório.</value>
   </data>
 </root>

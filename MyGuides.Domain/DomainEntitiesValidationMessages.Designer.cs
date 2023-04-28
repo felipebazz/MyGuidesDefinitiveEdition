@@ -61,6 +61,96 @@ namespace MyGuides.Domain {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to O tamanho máximo do campo descrição é de {0} carácteres..
+        /// </summary>
+        internal static string AchievementValidator_Description_MaxLength {
+            get {
+                return ResourceManager.GetString("AchievementValidator_Description_MaxLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O campo descrição da conquista não pode estar nulo..
+        /// </summary>
+        internal static string AchievementValidator_Description_Required {
+            get {
+                return ResourceManager.GetString("AchievementValidator_Description_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to É necessário informar a qual jogo a conquista pertence..
+        /// </summary>
+        internal static string AchievementValidator_GameId_Required {
+            get {
+                return ResourceManager.GetString("AchievementValidator_GameId_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to É necessário informar se a conquista está oculta..
+        /// </summary>
+        internal static string AchievementValidator_Hidden_Required {
+            get {
+                return ResourceManager.GetString("AchievementValidator_Hidden_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O tamanho máximo do campo imagem da conquista é de {0} carácteres..
+        /// </summary>
+        internal static string AchievementValidator_Icon_MaxLength {
+            get {
+                return ResourceManager.GetString("AchievementValidator_Icon_MaxLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O campo imagem da conquista é obrigatório..
+        /// </summary>
+        internal static string AchievementValidator_Icon_Required {
+            get {
+                return ResourceManager.GetString("AchievementValidator_Icon_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O tamanho máximo do campo imagem da conquista bloqueada é de {0} carácteres..
+        /// </summary>
+        internal static string AchievementValidator_IconGray_MaxLength {
+            get {
+                return ResourceManager.GetString("AchievementValidator_IconGray_MaxLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O campo imagem da conquista bloqueada é obrigatório..
+        /// </summary>
+        internal static string AchievementValidator_IconGray_Required {
+            get {
+                return ResourceManager.GetString("AchievementValidator_IconGray_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O tamanho máximo do cmapo nome da conquista é de {0} carácteres..
+        /// </summary>
+        internal static string AchievementValidator_Name_MaxLength {
+            get {
+                return ResourceManager.GetString("AchievementValidator_Name_MaxLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O campo nome da conquista é obrigatório..
+        /// </summary>
+        internal static string AchievementValidator_Name_Required {
+            get {
+                return ResourceManager.GetString("AchievementValidator_Name_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to É necessário informar se o tipo do banner está oculto..
         /// </summary>
         internal static string BannerTypeValidator_Hidden_Required {
@@ -147,6 +237,123 @@ namespace MyGuides.Domain {
         internal static string BannerValidator_Url_Required {
             get {
                 return ResourceManager.GetString("BannerValidator_Url_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O tamanho máximo do campo imagem da dificuldade é de {0} carácteres..
+        /// </summary>
+        internal static string DifficultyValidator_Image_MaxLength {
+            get {
+                return ResourceManager.GetString("DifficultyValidator_Image_MaxLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O campo imagem da dificuldade é obrigatório..
+        /// </summary>
+        internal static string DifficultyValidator_Image_Required {
+            get {
+                return ResourceManager.GetString("DifficultyValidator_Image_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O tamanho máximo do campo nome da dificuldade é de {0} carácteres..
+        /// </summary>
+        internal static string DifficultyValidator_Name_MaxLength {
+            get {
+                return ResourceManager.GetString("DifficultyValidator_Name_MaxLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O campo nome da dificuldade é obrigatório..
+        /// </summary>
+        internal static string DifficultyValidator_Name_Required {
+            get {
+                return ResourceManager.GetString("DifficultyValidator_Name_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O campo ordem da dificuldade é obrigatório..
+        /// </summary>
+        internal static string DifficultyValidator_Order_Required {
+            get {
+                return ResourceManager.GetString("DifficultyValidator_Order_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O campo app id do jogo é obrigatório..
+        /// </summary>
+        internal static string GameValidator_AppId_Required {
+            get {
+                return ResourceManager.GetString("GameValidator_AppId_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O tamanho máximo do campo nome do jogo é de {0} carácteres..
+        /// </summary>
+        internal static string GameValidator_Name_MaxLength {
+            get {
+                return ResourceManager.GetString("GameValidator_Name_MaxLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O campo nome do jogo é obrigatório..
+        /// </summary>
+        internal static string GameValidator_Name_Required {
+            get {
+                return ResourceManager.GetString("GameValidator_Name_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O campo versão do jogo é obrigatório..
+        /// </summary>
+        internal static string GameValidator_Version_Required {
+            get {
+                return ResourceManager.GetString("GameValidator_Version_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O campo conteúdo da seção é obrigatório..
+        /// </summary>
+        internal static string SectionValidator_Content_Required {
+            get {
+                return ResourceManager.GetString("SectionValidator_Content_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O campo individual é obrigatório..
+        /// </summary>
+        internal static string SectionValidator_IsIndividual_Required {
+            get {
+                return ResourceManager.GetString("SectionValidator_IsIndividual_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O tamanho máximo do campo nome de seção é de {0} caráceteres..
+        /// </summary>
+        internal static string SectionValidator_Name_MaxLength {
+            get {
+                return ResourceManager.GetString("SectionValidator_Name_MaxLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O campo nome da seção é obrigatório..
+        /// </summary>
+        internal static string SectionValidator_Name_Required {
+            get {
+                return ResourceManager.GetString("SectionValidator_Name_Required", resourceCulture);
             }
         }
     }
