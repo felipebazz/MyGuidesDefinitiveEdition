@@ -6,7 +6,7 @@ using MyGuides.Domain.Entities.Sections.Results;
 
 namespace MyGuides.Domain.Entities.Sections.Queries
 {
-    public class GetSectionsQueryHandler : IRequestHandler<GetSectionsQuery, List<Section>>
+    public class GetSectionsQueryHandler : IRequestHandler<GetSectionsQuery, List<SectionResult>>
     {
         private readonly ISectionRepository _sectionRepository;
 
@@ -16,14 +16,14 @@ namespace MyGuides.Domain.Entities.Sections.Queries
         }
 
         //public async Task<IEnumerable<SectionResult>> Handle(GetSectionsQuery request, CancellationToken cancellationToken)
-        public async Task<List<Section>> Handle(GetSectionsQuery request, CancellationToken cancellationToken)
+        public async Task<List<SectionResult>> Handle(GetSectionsQuery request, CancellationToken cancellationToken)
         {
             var sections = await _sectionRepository.GetAsync(
                 x => x.Achievements.First().GameId == request.GameId, 
                 cancellationToken,
                 include: source => source.Include(d => d.Achievements.Select(d => d.Difficulty)));
 
-            return new List<Section>();
+            return new List<SectionResult>();
         }
     }
 }
