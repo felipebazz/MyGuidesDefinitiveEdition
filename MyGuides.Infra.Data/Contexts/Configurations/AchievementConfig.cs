@@ -45,11 +45,13 @@ namespace MyGuides.Infra.Data.Contexts.Configurations
 
             builder.HasOne(p => p.Section)
                 .WithMany()
-                .HasForeignKey(f => f.SectionId);
+                .HasForeignKey(f => f.SectionId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.HasOne(p => p.Difficulty)
                 .WithMany(p => p.Achievements)
-                .HasForeignKey(f => f.DifficultyId);
+                .HasForeignKey(f => f.DifficultyId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

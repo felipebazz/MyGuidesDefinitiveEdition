@@ -10,7 +10,7 @@ namespace MyGuides.Api.Controllers
     public class BannerTypesController : ControllerBase
     {
         [HttpGet]
-        [ProducesResponseType(typeof(RequestResult<BannerTypeResult>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(RequestResult<IEnumerable<BannerTypeResult>>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetBannerTypes([FromServices] IGetBannerTypesUseCase useCase, CancellationToken cancellationToken)
         {
             return Ok(await useCase.ExecuteAsync(cancellationToken));

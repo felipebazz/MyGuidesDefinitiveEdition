@@ -35,10 +35,7 @@ namespace MyGuides.Domain.Entities.Achievements
 
         protected Achievement() { }
 
-        public void SetGameId(Guid gameId)
-        {
-            GameId = gameId;
-        }
+        public void SetGameId(Guid gameId) => GameId = gameId;
 
         public void SetOrder(long order) => Order = order;
 
@@ -60,7 +57,6 @@ namespace MyGuides.Domain.Entities.Achievements
         {
             if (description is null) return;
             Description = description;
-            Validate();
         }
 
         public override bool Validate() => OnValidate(this, new AchievementValidator());
