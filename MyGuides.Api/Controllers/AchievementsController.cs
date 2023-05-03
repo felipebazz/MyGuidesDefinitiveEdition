@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MyGuides.Application.UseCases.Achievements.GetAchievements;
-using MyGuides.Application.UseCases.Games.GetGames;
 using MyGuides.Domain.Entities.Achievements.Queries.GetAchievements;
 using MyGuides.Domain.Entities.Achievements.Results;
-using MyGuides.Domain.Entities.Games.Results;
 using MyGuides.Notifications.Result;
 
 namespace MyGuides.Api.Controllers

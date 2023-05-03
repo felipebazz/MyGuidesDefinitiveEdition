@@ -20,6 +20,7 @@
   <ItemGroup>
     <Folder Include="Entities\Achievements\Commands\" />
     <Folder Include="Entities\Difficulties\Commands\" />
+    <Folder Include="Entities\Sections\Commands\" />
   </ItemGroup>
 
   <ItemGroup>

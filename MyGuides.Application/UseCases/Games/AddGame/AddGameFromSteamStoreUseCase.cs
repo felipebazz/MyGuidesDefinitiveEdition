@@ -51,24 +51,29 @@ namespace MyGuides.Application.UseCases.Games.AddGame
 
                 request.StoreId = AppIdConverter.GetAppId(request.StoreId);
 
-                var result = await _steamApi.GetSchemaForGameAsync(_apiKey, request.StoreId);
-                var storeResult = await _steamStoreApi.GetAppDetailsFromStore(request.StoreId);
+                var apiTask = _steamApi.GetSchemaForGameAsync(_apiKey, request.StoreId);
+                var storeTask = _steamStoreApi.GetAppDetailsFromStore(request.StoreId);
 
-                if (result?.Game is null || result?.Game?.AvailableGameStats is null)
+                await Task.WhenAll(apiTask, storeTask);
+
+                if (apiTask.Result?.Game is null || apiTask.Result?.Game?.AvailableGameStats is null)
                 {
                     _notificationService.AddNotification(ApplicationValidationMessages.AddGameFromSteamStoreUseCase_Result_Empty);
                     return default;
                 }
 
-                result.Game.AppId = request.StoreId;
+                var apiResult = apiTask.Result;
+                var storeResult = storeTask.Result;
+
+                apiResult.Game.AppId = request.StoreId;
 
                 var command = new AddGameCommand(
-                    storeResult.Name ?? result.Game.GameName,
-                    result.Game.GameVersion, 
-                    result.Game.AppId, 
-                    result.Game.AvailableGameStats.Achievements, 
-                    storeResult.HeaderImage, 
-                    storeResult.BackgroundRaw);
+                    storeResult.Name ?? apiResult.Game.GameName,
+                    apiResult.Game.GameVersion,
+                    apiResult.Game.AppId, 
+                    apiResult.Game.AvailableGameStats.Achievements, 
+                    storeResult.HeaderImage ?? null, 
+                    storeResult.BackgroundRaw ?? null);
 
                 return await _mediator.Send(command, cancellationToken);
             }
