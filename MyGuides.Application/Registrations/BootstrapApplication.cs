@@ -32,9 +32,9 @@ namespace MyGuides.Application.Registrations
             service.AddScoped<IGetAchievementsUseCase, GetAchievementsUseCase>();
             service.AddScoped<IUpdateGameImagesUseCase, UpdateGameImagesUseCase>();
             service.AddScoped<IGetSectionsUseCase, GetSectionsUseCase>();
-            service.AddScoped<IAddUserUseCase,AddUserUseCase>();
+            service.AddScoped<IAddUserUseCase, AddUserUseCase>();
             service.AddScoped<IGetUsersUseCase,GetUsersUseCase>();
-            service.AddScoped<ICreateTokenUseCase, CreateTokenUseCase>();
+            service.AddScoped<UseCases.Auth.ICreateTokenUseCase, CreateTokenUseCase>();
             return service;
         }
 

@@ -1,11 +1,6 @@
 ﻿using MyGuides.Domain.Entities.Auth.Requests;
 using MyGuides.Domain.Entities.Auth.Results;
-using MyGuides.Notifications.UseCaseAbstractions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MyGuides.Notifications.UseCaseAbstractions; 
 
 namespace MyGuides.Application.UseCases.Auth
 {
