@@ -1,18 +1,9 @@
 ﻿using AutoMapper;
 using MediatR;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-using MyGuides.Domain.Entities.Games.Commands.AddGame;
-using MyGuides.Domain.Entities.Games.Repository;
-using MyGuides.Domain.Entities.Games.Results;
+using Microsoft.AspNetCore.Identity;
 using MyGuides.Domain.Entities.Users.Repository;
 using MyGuides.Domain.Entities.Users.Results;
-using MyGuides.Notifications.Context;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MyGuides.Notifications.Context; 
 
 namespace MyGuides.Domain.Entities.Users.Commands.AddUser
 {

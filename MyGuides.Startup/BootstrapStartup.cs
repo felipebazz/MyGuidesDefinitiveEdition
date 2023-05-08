@@ -3,15 +3,12 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using MyGuides.Application.Registrations;
+using Microsoft.Extensions.DependencyInjection; 
+using MyGuides.Application.Registrations; 
 using MyGuides.Domain.Registrations;
 using MyGuides.Infra.Data.Contexts.Database;
 using MyGuides.Infra.Data.Registrations;
-using MyGuides.Notifications.Registrations;
-using Steam.Api.Registrations;
-
+using MyGuides.Notifications.Registrations; 
 namespace MyGuides.Startup
 {
     public static class BootstrapStartup
@@ -27,12 +24,13 @@ namespace MyGuides.Startup
         private static void AddIdentity(WebApplicationBuilder builder)
         {
             builder.Services
-                .AddIdentityCore<IdentityUser>(options => {
+                .AddIdentity<IdentityUser,IdentityRole>(options =>
+                {
                     options.SignIn.RequireConfirmedAccount = false;
-                    options.User.RequireUniqueEmail = true; 
-                    options.Password.RequiredLength = 8; 
+                    options.User.RequireUniqueEmail = true;
+                    options.Password.RequiredLength = 8;
                 })
-                .AddEntityFrameworkStores<MyGuidesContext>();
+                .AddEntityFrameworkStores<MyGuidesContext>(); 
         }
 
         private static void AddBootstrapMyGuides(WebApplicationBuilder builder, IWebHostEnvironment hostEnvironment)

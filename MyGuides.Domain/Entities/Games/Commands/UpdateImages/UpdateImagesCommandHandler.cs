@@ -10,12 +10,12 @@ namespace MyGuides.Domain.Entities.Games.Commands.UpdateImages
     public class UpdateImagesCommandHandler : IRequestHandler<UpdateImagesCommand, GameResult>
     {
         private readonly IMapper _mapper;
-        private readonly IUserRepository _gameRepository;
+        private readonly IGameRepository _gameRepository;
         private readonly INotificationService _notificationService;
 
         public UpdateImagesCommandHandler(
             IMapper mapper,
-            IUserRepository gameRepository,
+            IGameRepository gameRepository,
             INotificationService notificationService)
         {
             _mapper = mapper;

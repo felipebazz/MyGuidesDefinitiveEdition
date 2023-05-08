@@ -1,14 +1,13 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.EntityFrameworkCore; 
 using Microsoft.Extensions.Configuration;
 using MyGuides.Domain.Entities.Achievements;
 using MyGuides.Domain.Entities.Banners;
 using MyGuides.Domain.Entities.BannerTypes;
 using MyGuides.Domain.Entities.Difficulties;
 using MyGuides.Domain.Entities.Games;
-using MyGuides.Domain.Entities.Sections;
+using MyGuides.Domain.Entities.Sections; 
 
 namespace MyGuides.Infra.Data.Contexts.Database
 {

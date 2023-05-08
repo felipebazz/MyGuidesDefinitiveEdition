@@ -2,7 +2,7 @@
 
 namespace MyGuides.Domain.Entities.Games.Repository
 {
-    public interface IUserRepository : IRepository<Game, Guid>
+    public interface IGameRepository : IRepository<Game, Guid>
     {
     }
 }

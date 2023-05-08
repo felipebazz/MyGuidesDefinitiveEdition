@@ -1,5 +1,4 @@
-﻿using MediatR;
-using MyGuides.Domain.Entities.Games.Results;
+﻿using MediatR; 
 using MyGuides.Domain.Entities.Users.Results;
 
 namespace MyGuides.Domain.Entities.Users.Commands.AddUser
