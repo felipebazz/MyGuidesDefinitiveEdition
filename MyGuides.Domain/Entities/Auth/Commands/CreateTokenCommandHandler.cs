@@ -50,12 +50,11 @@ namespace MyGuides.Domain.Entities.Auth.Commands
             );
 
             var tokenHandler = new JwtSecurityTokenHandler();
-
-            return new AuthResult
+            return _mapper.Map<AuthResult>(new AuthResult
             {
                 Token = tokenHandler.WriteToken(token),
                 Expiration = expiration
-            };
+            }); 
         }
         private JwtSecurityToken CreateJwtToken(Claim[] claims, SigningCredentials credentials, DateTime expiration) =>
             new JwtSecurityToken(

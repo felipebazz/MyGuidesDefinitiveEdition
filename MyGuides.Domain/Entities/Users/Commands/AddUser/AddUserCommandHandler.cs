@@ -27,13 +27,13 @@ namespace MyGuides.Domain.Entities.Users.Commands.AddUser
 
         public async Task<UserResult> Handle(AddUserCommand request, CancellationToken cancellationToken)
         {
-            if (_userRepository.Any(u => request.UserName.Equals(u.UserName)))
+            if (_userManager.Users.Any(u => request.UserName.Equals(u.UserName)))
             {
                 _notificationService.AddNotification(DomainValidationMessages.AddGameCommandHandler_Game_Exists);
                 return default;
             }
-            
-            if (_userRepository.Any(u => request.Email.Equals(u.Email)))
+
+            if (_userManager.Users.Any(u => request.Email.Equals(u.Email)))
             {
                 _notificationService.AddNotification(DomainValidationMessages.AddGameCommandHandler_Game_Exists);
                 return default;
@@ -54,7 +54,6 @@ namespace MyGuides.Domain.Entities.Users.Commands.AddUser
                 return default;
             }
             await _userManager.CreateAsync(new IdentityUser() { Email = user.Email, UserName = user.UserName }, user.Password);
-            await _userRepository.AddAsync(user, cancellationToken);
             user.Password = null;
             return _mapper.Map<UserResult>(user);
         }

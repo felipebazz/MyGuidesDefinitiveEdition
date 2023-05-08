@@ -2,6 +2,8 @@
 using MyGuides.Domain.Entities.Achievements;
 using MyGuides.Domain.Entities.Achievements.Converters;
 using MyGuides.Domain.Entities.Achievements.Results;
+using MyGuides.Domain.Entities.Auth.Requests;
+using MyGuides.Domain.Entities.Auth.Results;
 using MyGuides.Domain.Entities.Games;
 using MyGuides.Domain.Entities.Games.Converters;
 using MyGuides.Domain.Entities.Games.Results;
@@ -29,6 +31,11 @@ namespace MyGuides.Domain.Profiles
 
             CreateMap<List<User>, List<UserResult>>()
                 .ConvertUsing(new ToUserListResultConverter());
+
+            CreateMap<User, UserResult>()
+                .ConvertUsing(new ToUserResultConverter());
+
+            CreateMap<AuthResult, AuthResult>();
         }
     }
 }

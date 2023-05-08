@@ -34,7 +34,7 @@ namespace MyGuides.Application.Registrations
             service.AddScoped<IGetSectionsUseCase, GetSectionsUseCase>();
             service.AddScoped<IAddUserUseCase, AddUserUseCase>();
             service.AddScoped<IGetUsersUseCase,GetUsersUseCase>();
-            service.AddScoped<UseCases.Auth.ICreateTokenUseCase, CreateTokenUseCase>();
+            service.AddScoped<ICreateTokenUseCase, CreateTokenUseCase>();
             return service;
         }
 
