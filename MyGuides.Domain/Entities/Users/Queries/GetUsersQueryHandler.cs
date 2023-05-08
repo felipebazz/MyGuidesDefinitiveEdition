@@ -1,8 +1,5 @@
 ﻿using AutoMapper;
-using MediatR;
-using MyGuides.Domain.Entities.Achievements.Repositories;
-using MyGuides.Domain.Entities.Achievements.Results;
-using MyGuides.Domain.Entities.Difficulties.Repository;
+using MediatR; 
 using MyGuides.Domain.Entities.Users.Repository;
 using MyGuides.Domain.Entities.Users.Results;
 using MyGuides.Notifications.Context;

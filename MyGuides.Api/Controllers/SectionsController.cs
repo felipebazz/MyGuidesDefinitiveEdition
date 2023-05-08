@@ -1,7 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using MyGuides.Application.UseCases.Achievements.GetAchievements;
-using MyGuides.Application.UseCases.Sections.GetSections;
-using MyGuides.Domain.Entities.Achievements.Queries.GetAchievements;
+﻿using Microsoft.AspNetCore.Mvc; 
+using MyGuides.Application.UseCases.Sections.GetSections; 
 using MyGuides.Domain.Entities.Sections;
 using MyGuides.Domain.Entities.Sections.Queries;
 using MyGuides.Notifications.Result;

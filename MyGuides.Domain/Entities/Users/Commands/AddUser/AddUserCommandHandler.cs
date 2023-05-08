@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using MyGuides.Domain.Entities.Games.Commands.AddGame;
 using MyGuides.Domain.Entities.Games.Repository;
 using MyGuides.Domain.Entities.Games.Results;
@@ -19,15 +21,17 @@ namespace MyGuides.Domain.Entities.Users.Commands.AddUser
         private readonly IMapper _mapper;
         private readonly IUsersRepository _userRepository;
         private readonly INotificationService _notificationService;
-
+        private readonly UserManager<IdentityUser> _userManager;
         public AddUserCommandHandler(
             IMapper mapper,
             IUsersRepository usersRepository,
-            INotificationService notificationService)
+            INotificationService notificationService, 
+            UserManager<IdentityUser> userManager)
         {
             _mapper = mapper;
             _userRepository = usersRepository;
             _notificationService = notificationService;
+            _userManager = userManager;
         }
 
         public async Task<UserResult> Handle(AddUserCommand request, CancellationToken cancellationToken)
@@ -58,8 +62,9 @@ namespace MyGuides.Domain.Entities.Users.Commands.AddUser
                 _notificationService.AddNotification(string.Format(DomainValidationMessages.AddGameCommandHandler_Game_Invalid, user.ValidationResult.Errors.Count));
                 return default;
             }
-
+            await _userManager.CreateAsync(new IdentityUser() { Email = user.Email, UserName = user.UserName }, user.Password);
             await _userRepository.AddAsync(user, cancellationToken);
+            user.Password = null;
             return _mapper.Map<UserResult>(user);
         }
     }
