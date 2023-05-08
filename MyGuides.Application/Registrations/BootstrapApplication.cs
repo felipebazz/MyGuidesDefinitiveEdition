@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MyGuides.Application.Profiles;
 using MyGuides.Application.UseCases.Achievements.GetAchievements;
+using MyGuides.Application.UseCases.Auth;
 using MyGuides.Application.UseCases.BannerTypes.GetBannerTypes;
 using MyGuides.Application.UseCases.Games.AddGame;
 using MyGuides.Application.UseCases.Games.GetGames;
@@ -33,6 +34,7 @@ namespace MyGuides.Application.Registrations
             service.AddScoped<IGetSectionsUseCase, GetSectionsUseCase>();
             service.AddScoped<IAddUserUseCase,AddUserUseCase>();
             service.AddScoped<IGetUsersUseCase,GetUsersUseCase>();
+            service.AddScoped<ICreateTokenUseCase, CreateTokenUseCase>();
             return service;
         }
 
