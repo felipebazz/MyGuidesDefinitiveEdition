@@ -55,7 +55,7 @@ namespace MyGuides.Domain.Entities.Users.Commands.AddUser
 
             if (!user.Valid)
             {
-                _notificationService.AddNotification(string.Format(DomainValidationMessages.AddGameCommandHandler_Game_Invalid, game.ValidationResult.Errors.Count));
+                _notificationService.AddNotification(string.Format(DomainValidationMessages.AddGameCommandHandler_Game_Invalid, user.ValidationResult.Errors.Count));
                 return default;
             }
 
