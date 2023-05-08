@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using MyGuides.Domain.Entities.Achievements;
@@ -10,7 +12,7 @@ using MyGuides.Domain.Entities.Sections;
 
 namespace MyGuides.Infra.Data.Contexts.Database
 {
-    public class MyGuidesContext : DbContext
+    public class MyGuidesContext : IdentityUserContext<IdentityUser>
     {
         private readonly IConfiguration _configuration;
         public MyGuidesContext(DbContextOptions<MyGuidesContext> options, IConfiguration configuration)

@@ -1,5 +1,4 @@
-using MyGuides.Startup;
-using System.Reflection;
+using MyGuides.Startup; 
 
 var builder = WebApplication.CreateBuilder(args);
 
