@@ -6,7 +6,7 @@ using MyGuides.Infra.Data.Contexts.Repositories.Abstractions;
 
 namespace MyGuides.Infra.Data.Contexts.Repositories.Games
 {
-    public class GameRepository : Repository<Game, Guid>, IGameRepository
+    public class GameRepository : Repository<Game, Guid>, IUserRepository
     {
         public GameRepository(MyGuidesContext dbContext) 
             : base(dbContext)

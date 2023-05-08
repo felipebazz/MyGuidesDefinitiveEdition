@@ -5,6 +5,9 @@ using MyGuides.Domain.Entities.Achievements.Results;
 using MyGuides.Domain.Entities.Games;
 using MyGuides.Domain.Entities.Games.Converters;
 using MyGuides.Domain.Entities.Games.Results;
+using MyGuides.Domain.Entities.Users;
+using MyGuides.Domain.Entities.Users.Converters;
+using MyGuides.Domain.Entities.Users.Results;
 
 namespace MyGuides.Domain.Profiles
 {
@@ -23,6 +26,9 @@ namespace MyGuides.Domain.Profiles
 
             CreateMap<Tuple<IEnumerable<Steam.Api.Responses.Achievement>, Guid>, List<Achievement>>()
                 .ConvertUsing(new StoreToAchievementConverter());
+
+            CreateMap<List<User>, List<UserResult>>()
+                .ConvertUsing(new ToUserListResultConverter());
         }
     }
 }

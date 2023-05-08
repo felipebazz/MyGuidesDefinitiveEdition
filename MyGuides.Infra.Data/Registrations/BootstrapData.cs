@@ -33,7 +33,7 @@ namespace MyGuides.Infra.Data.Registrations
 
         private static void RegisterRepositories(this IServiceCollection service)
         {
-            service.AddScoped<IGameRepository, GameRepository>();
+            service.AddScoped<IUserRepository, GameRepository>();
             service.AddScoped<IBannerRepository, BannerRepository>();
             service.AddScoped<ISectionRepository, SectionRepository>();
             service.AddScoped<IDifficultyRepository, DifficultyRepository>();

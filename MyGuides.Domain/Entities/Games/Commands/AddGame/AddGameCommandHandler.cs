@@ -10,12 +10,12 @@ namespace MyGuides.Domain.Entities.Games.Commands.AddGame
     public class AddGameCommandHandler : IRequestHandler<AddGameCommand, GameResult>
     {
         private readonly IMapper _mapper;
-        private readonly IGameRepository _gameRepository;
+        private readonly IUserRepository _gameRepository;
         private readonly INotificationService _notificationService;
 
         public AddGameCommandHandler(
             IMapper mapper,
-            IGameRepository gameRepository,
+            IUserRepository gameRepository,
             INotificationService notificationService)
         {
             _mapper = mapper;

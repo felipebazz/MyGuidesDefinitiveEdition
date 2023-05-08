@@ -8,9 +8,9 @@ namespace MyGuides.Domain.Entities.Games.Queries
 {
     public class GetGamesQueryHandler : IRequestHandler<GetGamesQuery, IEnumerable<GameResult>>
     {
-        private readonly IGameRepository _gameRepository;
+        private readonly IUserRepository _gameRepository;
         private readonly IMapper _mapper;
-        public GetGamesQueryHandler(IGameRepository gameRepository, IMapper mapper)
+        public GetGamesQueryHandler(IUserRepository gameRepository, IMapper mapper)
         {
             _gameRepository = gameRepository;
             _mapper = mapper;
