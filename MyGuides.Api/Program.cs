@@ -1,4 +1,5 @@
 using MyGuides.Startup;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,10 +34,23 @@ builder.Services.AddCors(options =>
         });
 });
 
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddControllers(); 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1",
+        new Microsoft.OpenApi.Models.OpenApiInfo
+        {
+            Title = "My Guides Definitive Edition",
+            Version = "v1",
+            Description = "API REST para a criação de guias na STEAM",
+            Contact = new Microsoft.OpenApi.Models.OpenApiContact
+            {
+                Name = "legendary god speed",
+                Url = new Uri("https://github.com/legendarygodspeed/MyGuidesDefinitiveEdition/")
+            }
+        });
+});
 
 var app = builder.Build();
 
