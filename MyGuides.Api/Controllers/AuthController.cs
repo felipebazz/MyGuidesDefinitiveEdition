@@ -14,7 +14,7 @@ namespace MyGuides.Api.Controllers
         [ProducesResponseType(typeof(RequestResult<AuthResult>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(RequestResult), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(RequestResult), StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> CreateToken([FromBody] CreateTokenRequest request, [FromServices] CreateTokenUseCase useCase, CancellationToken cancellationToken) 
+        public async Task<IActionResult> CreateToken([FromBody] CreateTokenRequest request, [FromServices] ICreateTokenUseCase useCase, CancellationToken cancellationToken) 
             => Ok(await useCase.ExecuteAsync(request, cancellationToken));
         
     }

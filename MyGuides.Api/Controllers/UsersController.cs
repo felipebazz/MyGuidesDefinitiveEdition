@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc; 
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc; 
 using MyGuides.Application.UseCases.Games.GetGames;
 using MyGuides.Application.UseCases.Games.UpdateImages;
 using MyGuides.Application.UseCases.Users.AddUser;
@@ -16,6 +17,7 @@ namespace MyGuides.Api.Controllers
     public class UsersController : ControllerBase
     {
         [HttpPost]
+        [AllowAnonymous]
         [ProducesResponseType(typeof(RequestResult<UserResult>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(RequestResult), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(RequestResult), StatusCodes.Status500InternalServerError)]
@@ -23,12 +25,12 @@ namespace MyGuides.Api.Controllers
             => Ok(await useCase.ExecuteAsync(request, cancellationToken));
         
 
-        [HttpGet]
+        [HttpGet("{username}")] 
         [ProducesResponseType(typeof(RequestResult<IEnumerable<UserResult>>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(RequestResult), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(RequestResult), StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> GetUsers([FromBody] GetUserRequest request, [FromServices] IGetUsersUseCase useCase, CancellationToken cancellationToken)
-            => Ok(await useCase.ExecuteAsync(request, cancellationToken));
+        public async Task<IActionResult> GetUsers([FromRoute] string username, [FromServices] IGetUsersUseCase useCase, CancellationToken cancellationToken)
+            => Ok(await useCase.ExecuteAsync(new GetUserRequest() { Username = username}, cancellationToken));
 
     }
 }

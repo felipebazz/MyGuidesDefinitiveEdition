@@ -1,6 +1,7 @@
-﻿using MyGuides.Startup; 
-using MyGuides.Api.Controllers;
+﻿using MyGuides.Startup;  
 using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,7 +36,11 @@ builder.Services.AddCors(options =>
         });
 });
 
-builder.Services.AddControllers(); 
+builder.Services.AddControllers(opt =>
+{
+    var policy = new AuthorizationPolicyBuilder("Bearer").RequireAuthenticatedUser().Build();
+    opt.Filters.Add(new AuthorizeFilter(policy));
+});
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {

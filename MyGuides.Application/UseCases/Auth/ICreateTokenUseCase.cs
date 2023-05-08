@@ -4,7 +4,7 @@ using MyGuides.Notifications.UseCaseAbstractions;
 
 namespace MyGuides.Application.UseCases.Auth
 {
-    internal interface ICreateTokenUseCase : INotifiableUseCase<CreateTokenRequest, AuthResult>
+    public interface ICreateTokenUseCase : INotifiableUseCase<CreateTokenRequest, AuthResult>
     {
     }
 }
