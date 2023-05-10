@@ -1,5 +1,5 @@
 ﻿using MyGuides.Domain.Entities.Sections;
-using MyGuides.Domain.Entities.Sections.Queries;
+using MyGuides.Domain.Entities.Sections.Queries.GetSections;
 using MyGuides.Domain.Entities.Sections.Results;
 using MyGuides.Notifications.UseCaseAbstractions;
 
