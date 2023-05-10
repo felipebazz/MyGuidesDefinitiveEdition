@@ -1,12 +1,15 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MyGuides.Data.Contexts.Repositories.Users;
 using MyGuides.Domain.Entities.Achievements.Repositories;
 using MyGuides.Domain.Entities.Banners.Repository;
 using MyGuides.Domain.Entities.BannerTypes.Repository;
 using MyGuides.Domain.Entities.Difficulties.Repository;
 using MyGuides.Domain.Entities.Games.Repository;
 using MyGuides.Domain.Entities.Sections.Repository;
+using MyGuides.Domain.Entities.Users.Repository;
 using MyGuides.Infra.Data.Contexts.Database;
 using MyGuides.Infra.Data.Contexts.Repositories.Achievements;
 using MyGuides.Infra.Data.Contexts.Repositories.Banners;
@@ -39,6 +42,7 @@ namespace MyGuides.Infra.Data.Registrations
             service.AddScoped<IDifficultyRepository, DifficultyRepository>();
             service.AddScoped<IBannerTypeRepository, BannerTypeRepository>();
             service.AddScoped<IAchievementRepository, AchievementRepository>();
+            service.AddScoped<IUsersRepository, UsersRepository>();
             service.AddScoped<IUnitOfWork, UnitOfWork>();
         }
     }

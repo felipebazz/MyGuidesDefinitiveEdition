@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyGuides.Infra.Data.Contexts.Database;
 
@@ -11,9 +12,10 @@ using MyGuides.Infra.Data.Contexts.Database;
 namespace MyGuides.Infra.Data.Migrations
 {
     [DbContext(typeof(MyGuidesContext))]
-    partial class MyGuidesContextModelSnapshot : ModelSnapshot
+    [Migration("20230508090803_UpdateIdentityTables")]
+    partial class UpdateIdentityTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

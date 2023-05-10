@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using MyGuides.Application.UseCases.Sections.GetSections;
+
+﻿using Microsoft.AspNetCore.Mvc; 
+using MyGuides.Application.UseCases.Sections.GetSections; 
+using MyGuides.Domain.Entities.Sections;
 using MyGuides.Domain.Entities.Sections.Queries;
 using MyGuides.Domain.Entities.Sections.Results;
 using MyGuides.Notifications.Result;

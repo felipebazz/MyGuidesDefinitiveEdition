@@ -13,7 +13,7 @@ namespace MyGuides.Domain.Entities.Achievements.Converters
                 Description = itens.Description,
                 Hidden = itens.Hidden,
                 Icon = itens.Icon,
-                Difficulty = itens.Difficulty == null ? null : new Difficulty
+                Difficulty = itens.Difficulty == null ? null : new ResultDifficulty
                 {
                     Name = itens.Difficulty.Name,
                     Id = itens.Difficulty.Id,
