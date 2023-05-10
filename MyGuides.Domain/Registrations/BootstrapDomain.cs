@@ -1,5 +1,7 @@
 ﻿using MediatR;
-using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.DependencyInjection; 
+using MyGuides.Domain.Entities.Users.Results;
 using System.Reflection;
 
 namespace MyGuides.Domain.Registrations
@@ -9,7 +11,7 @@ namespace MyGuides.Domain.Registrations
         public static IServiceCollection RegistarDomain(this IServiceCollection service)
         {
             service.AddMediatR(Assembly.GetExecutingAssembly());
-
+            service.AddScoped<UserManager<IdentityUser>>();
             return service;
         }
 

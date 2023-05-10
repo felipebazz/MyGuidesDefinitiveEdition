@@ -216,4 +216,16 @@
   <data name="SectionValidator_Name_Required" xml:space="preserve">
     <value>O campo nome da seção é obrigatório.</value>
   </data>
+  <data name="UserValidator_Email_Invalid" xml:space="preserve">
+    <value>O campo email está inválido</value>
+  </data>
+  <data name="UserValidator_Email_Required" xml:space="preserve">
+    <value>O campo email é obrigatório</value>
+  </data>
+  <data name="UserValidator_Password_Required" xml:space="preserve">
+    <value>O campo senha é obrigatório</value>
+  </data>
+  <data name="UserValidator_Username_Required" xml:space="preserve">
+    <value>O campo usuário é obrigatório</value>
+  </data>
 </root>
